@@ -1,0 +1,22 @@
+{
+  "name": "key-travel-company",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dimkooo/k2_project.git"
+  },
+  "author": "K2 Group",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dimkooo/k2_project/issues"
+  },
+  "homepage": "https://github.com/dimkooo/k2_project#readme",
+  "dependencies": {
+    "mdbootstrap": "^4.8.2"
+  }
+}
