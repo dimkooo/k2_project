@@ -4,9 +4,13 @@
 
 .header {
   font-size: 1.4rem;
-  /* height: 7rem; */
-  padding: 0.8rem 0;
+  line-height: 1; 
+  padding: 1.5rem 0;
   /* background-color: aqua; */
+}
+
+.header__tile {
+  /* height: 100%; */
 }
 
 /********************* 
@@ -15,13 +19,11 @@
 
 .logo {
   /* background-color: orangered; */
-  padding: 0.6rem;
   display: flex;
   justify-content: center;
 }
 
-.logo__link {
-}
+.logo__link {}
 
 .logo__img {
   width: 12rem;
@@ -32,9 +34,6 @@
 */
 
 .telephones {
-  font-size: 1.4rem;
-  line-height: 1;
-  padding: 0.6rem;
   /* background-color: royalblue; */
   display: flex;
   flex-direction: column;
@@ -47,7 +46,8 @@
 }
 
 .telephones__icon {
-  padding: 0 1rem;
+  padding-right: 1rem;
+  color: var(--color-primary);
 }
 
 .telephones__number:last-child .telephones__icon {
@@ -59,7 +59,7 @@
 }
 
 /********************* 
-** LOGO
+** EMAIL
 */
 
 .email {
@@ -67,5 +67,92 @@
 }
 
 .email__address {
-  /* display: inline-block; */
+  display: inline-block;
 }
+
+.email__icon {
+  padding-right: 1rem;
+  color: var(--color-primary);
+}
+
+/********************* 
+** SEARCH
+*/
+
+.search {
+  /* background-color: blueviolet; */
+}
+
+.search__form {
+  margin: 0 auto;
+}
+
+.search__input {
+  font-size: 1.4rem;
+  margin: 0 !important;
+  padding: 0 !important;
+  /* font-weight: 400; */
+  transition: all .7s !important;
+}
+
+.search__input::placeholder {
+  color: var(--color-grey-dark-1);
+  /* font-weight: 400; */
+
+}
+
+.search__input:focus {
+  border-bottom: 1px solid var(--color-primary) !important;
+  box-shadow: 0 1px 0 0 var(--color-primary) !important;
+  /* font-weight: 700; */
+}
+
+.search__icon {
+  color: var(--color-primary);
+  padding-right: 1rem;
+}
+
+/********************* 
+** LANGUAGE SWITCHER
+*/
+
+.lang-switcher {
+  /* background-color: royalblue; */
+  display: flex;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+.lang-switcher__list {
+  align-items: center;
+}
+
+.lang-switcher__item {
+  border-color: var(--color-primary) !important;
+  padding: 0;
+  display: flex;
+}
+
+.lang-switcher__link {
+  color: var(--color-grey-dark-1);
+  padding: .75rem 1.25rem;
+}
+
+.lang-switcher__link:link,
+.lang-switcher__link:visited {
+  color: var(--color-grey-dark-1);
+}
+
+.lang-switcher__link:active,
+.lang-switcher__link:hover {
+  color: var(--color-primary);
+}
+
+.active .lang-switcher__link {
+  color: var(--color-grey-light-1);
+}
+
+.list-group .list-group-item.active.lang-switcher__item {
+  background-color: var(--color-primary);
+}
+

@@ -15,7 +15,7 @@
   <!-- Your custom styles (optional) -->
   <link href="css/style.css" rel="stylesheet">
   <!-- Lato Font -->
-  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -37,21 +37,48 @@
               +38<span class="telephones--offset">(066)</span>47-22-792
             </p>
             <p class="telephones__number">
-                <i class="fas fa-mobile-alt telephones__icon"></i>
+              <i class="fas fa-mobile-alt telephones__icon"></i>
               +38<span class="telephones--offset">(0342)</span>777-388
             </p>
           </div>
         </div>
         <div class="col-6">
-          <div class="tmp">
-            <div class="email">
-              <i class="fas fa-envelope"></i>
-              <p class="email__address">zayavka.key@gmail.com</p>
+          <div class="header__tile">
+            <div class="row">
+              <div class="col-8">
+                <div class="email">
+                  <p class="email__address">
+                    <i class="fas fa-envelope email__icon"></i>
+                    zayavka.key@gmail.com
+                  </p>
+                </div>
+                <div class="search">
+                  <form class="search__form form-inline md-form">
+                    <i class="fas fa-search search__icon" aria-hidden="true"></i>
+                    <input class="search__input form-control form-control-sm mr-3 w-75" type="text" placeholder="Знайти"
+                      aria-label="Search">
+                  </form>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="lang-switcher">
+                  <ul class="list-group list-group-horizontal lang-switcher__list">
+                    <li class="list-group-item active lang-switcher__item">
+                      <a class="lang-switcher__link" href="">UA</a>
+                    </li>
+                    <li class="list-group-item lang-switcher__item">
+                      <a class="lang-switcher__link" href="">RU</a>
+                    </li>
+                    <li class="list-group-item lang-switcher__item">
+                      <a class="lang-switcher__link" href="">EN</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
   </header>
 
