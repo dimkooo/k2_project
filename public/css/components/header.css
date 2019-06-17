@@ -64,10 +64,22 @@
 
 .email {
   /* background-color: yellowgreen; */
+  display: inline-block;
+}
+
+.email__link {}
+
+.email__link:link,
+.email__link:visited {
+  color: var(--color-grey-dark-1);
+}
+
+.email__link:active,
+.email__link:hover {
+  color: var(--color-primary);
 }
 
 .email__address {
-  display: inline-block;
 }
 
 .email__icon {
