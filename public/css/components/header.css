@@ -1,0 +1,71 @@
+/********************* 
+** HEADER
+*/
+
+.header {
+  font-size: 1.4rem;
+  /* height: 7rem; */
+  padding: 0.8rem 0;
+  /* background-color: aqua; */
+}
+
+/********************* 
+** LOGO
+*/
+
+.logo {
+  /* background-color: orangered; */
+  padding: 0.6rem;
+  display: flex;
+  justify-content: center;
+}
+
+.logo__link {
+}
+
+.logo__img {
+  width: 12rem;
+}
+
+/********************* 
+** TELEPHONES
+*/
+
+.telephones {
+  font-size: 1.4rem;
+  line-height: 1;
+  padding: 0.6rem;
+  /* background-color: royalblue; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.telephones__number {
+  /* display: inline-block; */
+}
+
+.telephones__icon {
+  padding: 0 1rem;
+}
+
+.telephones__number:last-child .telephones__icon {
+  color: transparent;
+}
+
+.telephones--offset {
+  padding: 0 .5rem;
+}
+
+/********************* 
+** LOGO
+*/
+
+.email {
+  /* background-color: yellowgreen; */
+}
+
+.email__address {
+  /* display: inline-block; */
+}
