@@ -5,16 +5,11 @@
 .header {
   font-size: 1.4rem;
   line-height: 1; 
-  padding: 1.5rem 0;
-  /* background-color: aqua; */
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .header__tile {
-  /* height: 100%; */
-}
-
-header {
-  border-bottom: solid 1px #f2f2f2;
 }
 
 /********************* 
@@ -22,9 +17,8 @@ header {
 */
 
 .logo {
-  /* background-color: orangered; */
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
 }
 
 .logo__link {}
@@ -38,7 +32,6 @@ header {
 */
 
 .telephones {
-  /* background-color: royalblue; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -46,7 +39,6 @@ header {
 }
 
 .telephones__number {
-  /* display: inline-block; */
 }
 
 .telephones__icon {
@@ -67,7 +59,6 @@ header {
 */
 
 .email {
-  /* background-color: yellowgreen; */
   display: inline-block;
 }
 
@@ -96,7 +87,6 @@ header {
 */
 
 .search {
-  /* background-color: blueviolet; */
 }
 
 .search__form {
@@ -107,25 +97,29 @@ header {
   font-size: 1.4rem;
   margin: 0 !important;
   padding: 0 !important;
-  /* font-weight: 400; */
   transition: all .7s !important;
 }
 
 .search__input::placeholder {
   color: var(--color-grey-dark-1);
-  /* font-weight: 400; */
-
 }
 
 .search__input:focus {
   border-bottom: 1px solid var(--color-primary) !important;
   box-shadow: 0 1px 0 0 var(--color-primary) !important;
-  /* font-weight: 700; */
+}
+
+
+.search__button {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: transparent;
+  margin-right: 1rem;
 }
 
 .search__icon {
   color: var(--color-primary);
-  padding-right: 1rem;
 }
 
 /********************* 
@@ -133,7 +127,6 @@ header {
 */
 
 .lang-switcher {
-  /* background-color: royalblue; */
   display: flex;
   justify-content: flex-end;
   height: 100%;

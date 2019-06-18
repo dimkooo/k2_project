@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Material Design Bootstrap</title>
+  <title>Туроператор КЕЙ</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
   <!-- Bootstrap core CSS -->
@@ -47,15 +47,23 @@
             <div class="row">
               <div class="col-8">
                 <p class="email">
-                    <a class="email__link" href="mailto:zayavka.key@gmail.com">
-                      <i class="fas fa-envelope email__icon"></i>
-                      zayavka.key@gmail.com</a>
+                  <a class="email__link" href="mailto:zayavka.key@gmail.com">
+                    <i class="fas fa-envelope email__icon"></i>
+                    zayavka.key@gmail.com</a>
                 </p>
                 <div class="search">
                   <form class="search__form form-inline md-form">
-                    <i class="fas fa-search search__icon" aria-hidden="true"></i>
-                    <input class="search__input form-control form-control-sm mr-3 w-75" type="text" placeholder="Знайти"
-                      aria-label="Search">
+                    <label for="mod-search-searchword"></label>
+                    <button type="submit" value=" " class="search__button" onclick="this.form.searchword.focus();">
+                      <i class="fas fa-search search__icon" aria-hidden="true"></i>
+                    </button>
+                    <input name="searchword" id="mod-search-searchword" maxlength="20"
+                      class="search__input form-control form-control-sm mr-3 w-75" type="text" size="20" value="Знайти"
+                      onblur="if (this.value=='') this.value='Знайти';"
+                      onfocus="if (this.value=='Знайти') this.value='';">
+                    <input type="hidden" name="task" value="search">
+                    <input type="hidden" name="option" value="com_search">
+                    <input type="hidden" name="Itemid" value="108">
                   </form>
                 </div>
               </div>
@@ -78,8 +86,45 @@
           </div>
         </div>
       </div>
-    </div>
   </header>
+
+  <!-- NAVIGATION -->
+  <nav class="navigation">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+            <ul class="navigation__list nav nav-pills nav-fill">
+                <li class="navigation__item nav-item">
+                  <a class="navigation__link nav-link active" href="/ua/">Головна</a>
+                </li>
+                <li class="navigation__item nav-item">
+                  <a class="navigation__link nav-link" href="/ua/pro-nas">Про нас</a>
+                </li>
+                <li class="navigation__item nav-item dropdown">
+                  <a class="navigation__link nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Агенствам</a>
+                  <div class="dropdown__menu dropdown-menu">
+                    <a class="dropdown__item dropdown-item" href="/ua/2013-02-18-10-15-53/reklamni-tury">Інфотури</a>
+                    <a class="dropdown__item dropdown-item" href="/ua/2013-02-18-10-15-53/vzirtsi-dokumenti">Взірці документів</a>
+                    <a class="dropdown__item dropdown-item" href="/ua/2013-02-18-10-15-53/ahentam-dlia-spivpratsi">Агентам для співпраці</a>
+                    <a class="dropdown__item dropdown-item" href="/ua/2013-02-18-10-15-53/rozsulka">Розсилка</a>
+                  </div>
+                </li>
+                <li class="navigation__item nav-item">
+                  <a class="navigation__link nav-link" href="/ua/kontakty">Контакти</a>
+                </li>
+                <li class="navigation__item nav-item">
+                  <a class="navigation__link nav-link" href="/ua/poshuk-hoteliu">Онлайн бронювання готелів</a>
+                </li>
+              </ul>
+        </div>
+      </div>
+    </div>
+
+  </nav>
+
+  <div style="width: 20px">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Error deserunt unde, quo in ab eos ullam corporis ducimus repudiandae vel necessitatibus, nam iure vitae provident quia aut harum tempora omnis.
+  </div>
 
   <!-- SCRIPTS -->
   <!-- JQuery -->
