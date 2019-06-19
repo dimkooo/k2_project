@@ -70,6 +70,15 @@
 .telephone {
 }
 
+.telephone__link {
+  color: inherit;
+}
+
+.telephone__link:active,
+.telephone__link:hover {
+  color: var(--color-primary);
+}
+
 .telephone__icon {
   padding-left: .3rem;
   padding-right: 1rem;
@@ -114,7 +123,7 @@
 */
 
 .lang-switcher {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   display: flex;
   justify-content: flex-end;
   /* height: 100%; */

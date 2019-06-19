@@ -41,10 +41,53 @@
                 <i class="fas fa-envelope email__icon"></i>
                 zayavka.key@gmail.com</a>
             </p>
-            <p class="telephone">
-              <i class="fas fa-mobile-alt telephone__icon"></i>
-              +38<span class="telephone--offset">(066)</span>47-22-792
-            </p>
+            <!-- Phone number -->
+            <div class="telephone" data-toggle="modal" data-target="#modalCart">
+              <a class="telephone__link" href="#">
+                <i class="fas fa-mobile-alt telephone__icon"></i>
+                +38<span class="telephone--offset">(066)</span>47-22-792&nbsp;&dtrif; 
+              </a>
+              <!-- Modal: modalCart -->
+              <div class="modal fade" id="modalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <!--Header-->
+                    <div class="modal-header">
+                      <h3 class="modal-title" id="myModalLabel">Наші телефони</h3>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                      </button>
+                    </div>
+                    <!--Body-->
+                    <div class="modal-body">
+                      <h4><i class="fas fa-hiking"></i>Туристам</h4>
+                      <p class="">
+                        +38<span class="telephones--offset">(066)</span>47-22-792
+                      </p>
+                      /0342/ 78-43-19
+                      <p class="">
+                        +38<span class="telephones--offset">(0342)</span>77-73-88
+                      </p>
+                      <h4><i class="fas fa-briefcase"></i>Агенствам</h4>
+                      <p class="">
+                        +38<span class="telephones--offset">(0342)</span>78-43-19
+                      </p>
+                      <p class="">
+                        +38<span class="telephones--offset">(0342)</span>78-42-62
+                      </p>
+                      <p class="">
+                        +38<span class="telephones--offset">(066)</span>44-21-913
+                      </p>
+                      <p class="">
+                        +38<span class="telephones--offset">(066)</span>30-09-122
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Modal: modalCart -->
+            </div>
           </div>
         </div>
         <!-- Search -->
@@ -52,15 +95,16 @@
           <div class="search mt-3">
             <form class="search__form">
               <div class="input-group">
-                <input type="text" class="search__input form-control" placeholder="Я шукаю..." aria-label="Recipient's username"
-                  aria-describedby="basic-addon2" name="searchword" value="">
+                <input type="text" class="search__input form-control" placeholder="Я шукаю..."
+                  aria-label="Recipient's username" aria-describedby="basic-addon2" name="searchword" value="">
                 <div class="input-group-append">
-                  <button type="submit" value=" " class="search__button input-group-text" onclick="this.form.searchword.focus();">
+                  <button type="submit" value=" " class="search__button input-group-text"
+                    onclick="this.form.searchword.focus();">
                     Знайти
                   </button>
                 </div>
               </div>
-              
+
             </form>
           </div>
         </div>
