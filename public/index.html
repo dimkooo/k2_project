@@ -22,10 +22,10 @@
 
   <!--HEADER-->
   <header class="header">
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
         <!-- Logo -->
-        <div class="col-2">
+        <div class="col-4 col-sm-3 col-lg-2">
           <div class="logo">
             <a class="logo__link" href="http://key.if.ua/">
               <img class="logo__img" src="./img/logo_edited.png" alt="Key Travel Company">
@@ -33,7 +33,7 @@
           </div>
         </div>
         <!-- Contacts -->
-        <div class="col-3">
+        <div class="col-lg-3 d-none d-lg-block">
           <div class="contacts">
             <!-- Email -->
             <p class="email">
@@ -45,42 +45,41 @@
             <div class="telephone" data-toggle="modal" data-target="#modalCart">
               <a class="telephone__link" href="#">
                 <i class="fas fa-mobile-alt telephone__icon"></i>
-                +38<span class="telephone--offset">(066)</span>47-22-792&nbsp;&dtrif; 
+                +38<span class="telephone--offset">(066)</span>47-22-792&nbsp;&dtrif;
               </a>
               <!-- Modal: modalCart -->
-              <div class="modal fade" id="modalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+              <div class="modal fade " id="modalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
-                <div class="modal-dialog" role="document">
+                <div class="modal-dialog modal-dialog-centered" role="document">
                   <div class="modal-content">
                     <!--Header-->
                     <div class="modal-header">
-                      <h3 class="modal-title" id="myModalLabel">Наші телефони</h3>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <h3 class="telephone__heading modal-title" id="myModalLabel">Наші телефони</h3>
+                      <button type="button" class="telephone__close close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                       </button>
                     </div>
                     <!--Body-->
                     <div class="modal-body">
-                      <h4><i class="fas fa-hiking"></i>Туристам</h4>
-                      <p class="">
-                        +38<span class="telephones--offset">(066)</span>47-22-792
+                      <h4 class="telephone__forwhom"><i class="telephone__icon fas fa-hiking"></i>Туристам</h4>
+                      <p class="telephone__number">
+                        +38<span class="telephone--offset">(066)</span>47-22-792
                       </p>
-                      /0342/ 78-43-19
-                      <p class="">
-                        +38<span class="telephones--offset">(0342)</span>77-73-88
+                      <p class="telephone__number">
+                        +38<span class="telephone--offset">(0342)</span>77-73-88
                       </p>
-                      <h4><i class="fas fa-briefcase"></i>Агенствам</h4>
-                      <p class="">
-                        +38<span class="telephones--offset">(0342)</span>78-43-19
+                      <h4 class="telephone__forwhom mt-5"><i class="telephone__icon fas fa-briefcase"></i>Агенствам</h4>
+                      <p class="telephone__number">
+                        +38<span class="telephone--offset">(0342)</span>78-43-19
                       </p>
-                      <p class="">
-                        +38<span class="telephones--offset">(0342)</span>78-42-62
+                      <p class="telephone__number">
+                        +38<span class="telephone--offset">(0342)</span>78-42-62
                       </p>
-                      <p class="">
-                        +38<span class="telephones--offset">(066)</span>44-21-913
+                      <p class="telephone__number">
+                        +38<span class="telephone--offset">(066)</span>44-21-913
                       </p>
-                      <p class="">
-                        +38<span class="telephones--offset">(066)</span>30-09-122
+                      <p class="telephone__number">
+                        +38<span class="telephone--offset">(066)</span>30-09-122
                       </p>
                     </div>
                   </div>
@@ -91,7 +90,7 @@
           </div>
         </div>
         <!-- Search -->
-        <div class="col-5">
+        <div class="col-6 col-sm-7 col-lg-5">
           <div class="search mt-3">
             <form class="search__form">
               <div class="input-group">
@@ -109,7 +108,7 @@
           </div>
         </div>
         <!-- Languages -->
-        <div class="col-2">
+        <div class="col-2 d-flex justify-content-end align-items-start">
           <div class="lang-switcher mt-3">
             <ul class="list-group list-group-horizontal lang-switcher__list">
               <li class="list-group-item active lang-switcher__item">
@@ -123,6 +122,9 @@
               </li>
             </ul>
           </div>
+          <button class="burger-button">
+            <i class="fas fa-bars"></i>
+          </button>
         </div>
       </div>
   </header>
@@ -167,6 +169,8 @@
   <div style="width: 20px">
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Error deserunt unde, quo in ab eos ullam corporis ducimus
     repudiandae vel necessitatibus, nam iure vitae provident quia aut harum tempora omnis.
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate dignissimos esse incidunt possimus, in est
+    maiores similique ab illum. Cupiditate necessitatibus error minus! Ab, sed nihil. Ducimus, quia dolorum. Omnis.
   </div>
 
   <!-- SCRIPTS -->
