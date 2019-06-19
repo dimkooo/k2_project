@@ -3,13 +3,11 @@
 */
 
 .header {
-  font-size: 1.4rem;
-  line-height: 1; 
+  font-size: 1.6rem;
   padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-}
-
-.header__tile {
+  /* padding-bottom: 1.5rem; */
+  display: flex;
+  align-items: center;
 }
 
 /********************* 
@@ -21,37 +19,19 @@
   /* justify-content: center; */
 }
 
-.logo__link {}
+.logo__link {
+}
 
 .logo__img {
   width: 12rem;
 }
 
 /********************* 
-** TELEPHONES
+** CONTACTS
 */
 
-.telephones {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-}
+.contacts {
 
-.telephones__number {
-}
-
-.telephones__icon {
-  padding-right: 1rem;
-  color: var(--color-primary);
-}
-
-.telephones__number:last-child .telephones__icon {
-  color: transparent;
-}
-
-.telephones--offset {
-  padding: 0 .5rem;
 }
 
 /********************* 
@@ -62,7 +42,8 @@
   display: inline-block;
 }
 
-.email__link {}
+.email__link {
+}
 
 .email__link:link,
 .email__link:visited {
@@ -83,43 +64,49 @@
 }
 
 /********************* 
-** SEARCH
+** TELEPHONES
+*/
+
+.telephone {
+}
+
+.telephone__icon {
+  padding-left: .3rem;
+  padding-right: 1rem;
+  color: var(--color-primary);
+}
+
+.telephone--offset {
+  padding: 0 0.5rem;
+}
+
+/********************* 
+** TELEPHONES
 */
 
 .search {
 }
 
-.search__form {
-  margin: 0 auto;
-}
-
 .search__input {
-  font-size: 1.4rem;
-  margin: 0 !important;
-  padding: 0 !important;
-  transition: all .7s !important;
-}
-
-.search__input::placeholder {
-  color: var(--color-grey-dark-1);
+  font-size: inherit;
 }
 
 .search__input:focus {
-  border-bottom: 1px solid var(--color-primary) !important;
-  box-shadow: 0 1px 0 0 var(--color-primary) !important;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 0.2rem rgba(216, 97, 0,.25);
 }
-
 
 .search__button {
-  padding: 0;
-  margin: 0;
-  border: none;
-  background-color: transparent;
-  margin-right: 1rem;
+  font-size: inherit;
+  background-color: var(--color-grey-light-2);
+  transition: all .2s;
 }
 
-.search__icon {
-  color: var(--color-primary);
+.search__button:active,
+.search__button:hover {
+  color: var(--color-grey-light-1);
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
 }
 
 /********************* 
@@ -127,13 +114,14 @@
 */
 
 .lang-switcher {
+  font-size: 1.2rem;
   display: flex;
   justify-content: flex-end;
-  height: 100%;
+  /* height: 100%; */
 }
 
 .lang-switcher__list {
-  align-items: center;
+  /* align-items: center; */
 }
 
 .lang-switcher__item {
@@ -144,7 +132,8 @@
 
 .lang-switcher__link {
   color: var(--color-grey-dark-1);
-  padding: .75rem 1.25rem;
+  /* background-color: var(--color-grey-light-2); */
+  padding: 0.5rem 1rem;
 }
 
 .lang-switcher__link:link,
@@ -165,3 +154,21 @@
   background-color: var(--color-primary);
 }
 
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}

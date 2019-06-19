@@ -19,70 +19,65 @@
 </head>
 
 <body>
+
   <!--HEADER-->
   <header class="header">
     <div class="container">
       <div class="row">
-        <div class="col-3">
+        <!-- Logo -->
+        <div class="col-2">
           <div class="logo">
             <a class="logo__link" href="http://key.if.ua/">
               <img class="logo__img" src="./img/logo_edited.png" alt="Key Travel Company">
             </a>
           </div>
         </div>
+        <!-- Contacts -->
         <div class="col-3">
-          <div class="telephones">
-            <p class="telephones__number">
-              <i class="fas fa-mobile-alt telephones__icon"></i>
-              +38<span class="telephones--offset">(066)</span>47-22-792
+          <div class="contacts">
+            <!-- Email -->
+            <p class="email">
+              <a class="email__link" href="mailto:zayavka.key@gmail.com">
+                <i class="fas fa-envelope email__icon"></i>
+                zayavka.key@gmail.com</a>
             </p>
-            <p class="telephones__number">
-              <i class="fas fa-mobile-alt telephones__icon"></i>
-              +38<span class="telephones--offset">(0342)</span>777-388
+            <p class="telephone">
+              <i class="fas fa-mobile-alt telephone__icon"></i>
+              +38<span class="telephone--offset">(066)</span>47-22-792
             </p>
           </div>
         </div>
-        <div class="col-6">
-          <div class="header__tile">
-            <div class="row">
-              <div class="col-8">
-                <p class="email">
-                  <a class="email__link" href="mailto:zayavka.key@gmail.com">
-                    <i class="fas fa-envelope email__icon"></i>
-                    zayavka.key@gmail.com</a>
-                </p>
-                <div class="search">
-                  <form class="search__form form-inline md-form">
-                    <label for="mod-search-searchword"></label>
-                    <button type="submit" value=" " class="search__button" onclick="this.form.searchword.focus();">
-                      <i class="fas fa-search search__icon" aria-hidden="true"></i>
-                    </button>
-                    <input name="searchword" id="mod-search-searchword" maxlength="20"
-                      class="search__input form-control form-control-sm mr-3 w-75" type="text" size="20" value="Знайти"
-                      onblur="if (this.value=='') this.value='Знайти';"
-                      onfocus="if (this.value=='Знайти') this.value='';">
-                    <input type="hidden" name="task" value="search">
-                    <input type="hidden" name="option" value="com_search">
-                    <input type="hidden" name="Itemid" value="108">
-                  </form>
+        <!-- Search -->
+        <div class="col-5">
+          <div class="search mt-3">
+            <form class="search__form">
+              <div class="input-group">
+                <input type="text" class="search__input form-control" placeholder="Я шукаю..." aria-label="Recipient's username"
+                  aria-describedby="basic-addon2" name="searchword" value="">
+                <div class="input-group-append">
+                  <button type="submit" value=" " class="search__button input-group-text" onclick="this.form.searchword.focus();">
+                    Знайти
+                  </button>
                 </div>
               </div>
-              <div class="col-4">
-                <div class="lang-switcher">
-                  <ul class="list-group list-group-horizontal lang-switcher__list">
-                    <li class="list-group-item active lang-switcher__item">
-                      <a class="lang-switcher__link" href="/ua/">UA</a>
-                    </li>
-                    <li class="list-group-item lang-switcher__item">
-                      <a class="lang-switcher__link" href="/ru/">RU</a>
-                    </li>
-                    <li class="list-group-item lang-switcher__item">
-                      <a class="lang-switcher__link" href="/en/">EN</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+              
+            </form>
+          </div>
+        </div>
+        <!-- Languages -->
+        <div class="col-2">
+          <div class="lang-switcher mt-3">
+            <ul class="list-group list-group-horizontal lang-switcher__list">
+              <li class="list-group-item active lang-switcher__item">
+                <a class="lang-switcher__link" href="/ua/">UA</a>
+              </li>
+              <li class="list-group-item lang-switcher__item">
+                <a class="lang-switcher__link" href="/ru/">RU</a>
+              </li>
+              <li class="list-group-item lang-switcher__item">
+                <a class="lang-switcher__link" href="/en/">EN</a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -93,29 +88,32 @@
     <div class="container">
       <div class="row">
         <div class="col">
-            <ul class="navigation__list nav nav-pills nav-fill">
-                <li class="navigation__item nav-item">
-                  <a class="navigation__link nav-link active" href="/ua/">Головна</a>
-                </li>
-                <li class="navigation__item nav-item">
-                  <a class="navigation__link nav-link" href="/ua/pro-nas">Про нас</a>
-                </li>
-                <li class="navigation__item nav-item dropdown">
-                  <a class="navigation__link nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Агенствам</a>
-                  <div class="dropdown__menu dropdown-menu">
-                    <a class="dropdown__item dropdown-item" href="/ua/2013-02-18-10-15-53/reklamni-tury">Інфотури</a>
-                    <a class="dropdown__item dropdown-item" href="/ua/2013-02-18-10-15-53/vzirtsi-dokumenti">Взірці документів</a>
-                    <a class="dropdown__item dropdown-item" href="/ua/2013-02-18-10-15-53/ahentam-dlia-spivpratsi">Агентам для співпраці</a>
-                    <a class="dropdown__item dropdown-item" href="/ua/2013-02-18-10-15-53/rozsulka">Розсилка</a>
-                  </div>
-                </li>
-                <li class="navigation__item nav-item">
-                  <a class="navigation__link nav-link" href="/ua/kontakty">Контакти</a>
-                </li>
-                <li class="navigation__item nav-item">
-                  <a class="navigation__link nav-link" href="/ua/poshuk-hoteliu">Онлайн бронювання готелів</a>
-                </li>
-              </ul>
+          <ul class="navigation__list nav nav-pills nav-fill">
+            <li class="navigation__item nav-item">
+              <a class="navigation__link nav-link active" href="/ua/">Головна</a>
+            </li>
+            <li class="navigation__item nav-item">
+              <a class="navigation__link nav-link" href="/ua/pro-nas">Про нас</a>
+            </li>
+            <li class="navigation__item nav-item dropdown">
+              <a class="navigation__link nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                aria-haspopup="true" aria-expanded="false">Агенствам</a>
+              <div class="dropdown__menu dropdown-menu">
+                <a class="dropdown__item dropdown-item" href="/ua/2013-02-18-10-15-53/reklamni-tury">Інфотури</a>
+                <a class="dropdown__item dropdown-item" href="/ua/2013-02-18-10-15-53/vzirtsi-dokumenti">Взірці
+                  документів</a>
+                <a class="dropdown__item dropdown-item" href="/ua/2013-02-18-10-15-53/ahentam-dlia-spivpratsi">Агентам
+                  для співпраці</a>
+                <a class="dropdown__item dropdown-item" href="/ua/2013-02-18-10-15-53/rozsulka">Розсилка</a>
+              </div>
+            </li>
+            <li class="navigation__item nav-item">
+              <a class="navigation__link nav-link" href="/ua/kontakty">Контакти</a>
+            </li>
+            <li class="navigation__item nav-item">
+              <a class="navigation__link nav-link" href="/ua/poshuk-hoteliu">Онлайн бронювання готелів</a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -123,7 +121,8 @@
   </nav>
 
   <div style="width: 20px">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Error deserunt unde, quo in ab eos ullam corporis ducimus repudiandae vel necessitatibus, nam iure vitae provident quia aut harum tempora omnis.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Error deserunt unde, quo in ab eos ullam corporis ducimus
+    repudiandae vel necessitatibus, nam iure vitae provident quia aut harum tempora omnis.
   </div>
 
   <!-- SCRIPTS -->
