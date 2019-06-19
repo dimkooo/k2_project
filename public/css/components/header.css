@@ -160,6 +160,8 @@
   border-color: var(--color-primary) !important;
   padding: 0;
   display: flex;
+  position: relative;
+  z-index: 0 !important;
 }
 
 .lang-switcher__item:hover,
