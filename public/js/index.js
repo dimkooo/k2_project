@@ -23,6 +23,6 @@ const onHideSidebar = () => {
 }
 
 // сховати sidebar за допомогою swipe-жесту
-var hammertime = new Hammer(panel);
-hammertime.on('swipe', onHideSidebar);
-hammertime.get('swipe').set({ direction: Hammer.DIRECTION_LEFT });
+var hammerHide = new Hammer(panel);
+hammerHide.on('swipe', onHideSidebar);
+hammerHide.get('swipe').set({ direction: Hammer.DIRECTION_LEFT });
