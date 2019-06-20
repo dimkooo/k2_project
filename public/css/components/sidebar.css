@@ -5,7 +5,9 @@
 .sidebar {
   width: 100%;
   font-size: 1.6rem;
-  overflow: scroll;
+  /* min-height: 100vh; */
+  position: relative;
+  /* z-index: -10; */
 }
 
 /********************* 
@@ -13,9 +15,10 @@
 */
 
 .panel {
-  min-height: 100vh;
-  background-color: var(--color-grey-light-1);
+  overflow-y: scroll;
+  height: 100%;
   position: fixed;
+  background-color: var(--color-grey-light-1);
   top: 0;
   left: -36rem;
   z-index: 1050;
@@ -31,6 +34,9 @@
   padding-top: 1rem;
   padding-bottom: 1rem;
   background-color: var(--color-grey-dark-5);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .panel__img {
@@ -58,6 +64,8 @@
 
 .panel__nav {
   padding: 0;
+  position: relative;
+  overflow-y: scroll;
 }
 
 .panel__nav-item {
