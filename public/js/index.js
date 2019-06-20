@@ -21,3 +21,8 @@ const onHideSidebar = () => {
   backdrop.classList.remove('backdrop--shown');
   panel.classList.remove('panel--shown');
 }
+
+// сховати sidebar за допомогою swipe-жесту
+var hammertime = new Hammer(panel);
+hammertime.on('swipe', onHideSidebar);
+hammertime.get('swipe').set({ direction: Hammer.DIRECTION_LEFT });
