@@ -3,7 +3,55 @@
 */
 
 .sidebar {
+  width: 100%;
+  font-size: 1.6rem;
+}
 
+/********************* 
+** PANEL
+*/
+
+.panel {
+  min-height: 100vh;
+  background-color: var(--color-grey-light-1);
+  position: fixed;
+  top: 0;
+  left: -36rem;
+  z-index: 1050;
+  transition: all 0.2s ease;
+}
+
+.panel--shown {
+  left: 0;
+}
+
+.panel__header {
+  border-bottom: 1px solid var(--color-grey-dark-4);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.panel__img {
+  width: 8rem;
+}
+
+.panel__lang-switcher {
+  font-size: 1.2rem;
+}
+
+.panel__close-button {
+  font-size: 3rem;
+  color: var(--color-grey-dark-1);
+  padding: 0;
+  background-color: transparent;
+  border: transparent;
+  border-radius: 2px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.panel__logo {
+  width: 100%;
 }
 
 /********************* 
