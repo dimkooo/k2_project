@@ -162,16 +162,18 @@
   display: flex;
   position: relative;
   z-index: 0 !important;
+  background-color: transparent;
 }
 
 .lang-switcher__item:hover,
 .lang-switcher__item:active {
-background-color: var(--color-grey-dark-4);
+  background-color: var(--color-grey-dark-4);
 }
 
 .lang-switcher__link {
   color: var(--color-grey-dark-1);
   padding: 0.5rem 1rem;
+  background-color: transparent;
 }
 
 .lang-switcher__link:link,
