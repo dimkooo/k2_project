@@ -1,0 +1,166 @@
+/********************* 
+** SEARCH
+*/
+
+.search-booking {
+  background-color: var(--color-grey-light-2);
+  position: relative;
+  z-index: -100;
+}
+
+.search-booking__heading {
+  color: transparent;
+  text-transform: uppercase;
+  font-size: 3.6rem;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.2rem;
+  background-image: linear-gradient(to right, var(--color-primary-light-2), var(--color-primary-dark-1));
+  display: inline-block;
+  -webkit-background-clip: text;
+  word-spacing: 0.5rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.search-booking .row > .col {
+  display: flex;
+  justify-content: center;
+}
+
+.search-booking__options {
+  width: 100%;
+  position: relative;
+  height: 55rem;
+}
+
+.search-booking__hotels {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 50rem;
+  background-size: cover;
+  background-position: center;
+  background-image: linear-gradient(to right bottom, rgba(216, 97, 0, 0.8), rgba(216, 97, 0, 0.8)),
+    url("../../img/hotel.jpg");
+  clip-path: polygon(56% 0, 100% 0, 100% 100%, 41% 100%);
+  background-blend-mode: screen;
+}
+
+.search-booking__apartments {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50rem;
+  background-size: cover;
+  background-position: center;
+  background-image: linear-gradient(to right bottom, rgba(216, 97, 0, 0.8), rgba(216, 97, 0, 0.8)),
+    url("../../img/apartments.jpg");
+  clip-path: polygon(0 0, 54% 0, 39% 100%, 0 100%);
+  background-blend-mode: screen;
+}
+
+.search-booking__apartments-heading {
+  font-size: 3.6rem;
+  color: var(--color-grey-light-1);
+  padding: 1rem 1rem;
+  background-image: linear-gradient(to right bottom, var(--color-primary-light-2), var(--color-primary-dark-1));
+  display: inline-block;
+  text-transform: uppercase;
+  position: absolute;
+  top: 5%;
+  left: 0;
+}
+
+.search-booking__hotels-heading {
+  font-size: 3.6rem;
+  color: var(--color-grey-light-1);
+  padding: 1rem 1rem;
+  background-image: linear-gradient(to right bottom, var(--color-primary-light-2), var(--color-primary-dark-1));
+  display: inline-block;
+  text-transform: uppercase;
+  position: absolute;
+  top: 5%;
+  right: 0;
+}
+
+.search-booking__apartments-link {
+  position: absolute;
+  left: 25%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.6rem;
+  text-transform: uppercase;
+  color: var(--color-grey-dark-1);
+  border-radius: 10rem;
+  border: 1px solid var(--color-grey-dark-1);
+  background-color: var(--color-grey-light-1);
+  padding: 1.5rem 4rem;
+}
+
+.search-booking__hotels-link {
+  position: absolute;
+  right: 25%;
+  top: 50%;
+  transform: translate(50%, -50%);
+  font-size: 2.6rem;
+  text-transform: uppercase;
+  color: var(--color-grey-dark-1);
+  border-radius: 10rem;
+  border: 1px solid var(--color-grey-dark-1);
+  background-color: var(--color-grey-light-1);
+  padding: 1.5rem 4rem;
+}
+
+/* .search-booking__link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50rem;
+  background-size: cover;
+  background-position: center;
+}
+
+.search-booking__img--hotels {
+  background-image: linear-gradient(to right bottom, rgba(216, 97, 0, 0.1), rgba(216, 97, 0, 0.1)),
+    url("../../img/hotel.jpg");
+  clip-path: polygon(56% 0, 100% 0, 100% 100%, 41% 100%);
+}
+
+.search-booking__img--hotels:hover {
+  transform: scale(.95);
+}
+
+.search-booking__img--apartments {
+  background-image: linear-gradient(to right bottom, rgba(216, 97, 0, 0.1), rgba(216, 97, 0, 0.1)),
+  url("../../img/apartments.jpg");
+  clip-path: polygon(0 0, 54% 0, 39% 100%, 0 100%);
+}
+
+.search-booking__hotel-heading {
+  font-size: 3.6rem;
+  color: var(--color-grey-light-1);
+  padding: 1rem 1rem;
+  background-image: linear-gradient(to right bottom,var(--color-primary-light-2), var(--color-primary-dark-1));
+  display: inline-block;
+  text-transform: uppercase;
+  position: absolute;
+  top: 5%;
+  right: 0;
+}
+
+.search-booking__apartments-heading {
+  font-size: 3.6rem;
+  color: var(--color-grey-light-1);
+  padding: 1rem 1rem;
+  background-image: linear-gradient(to right bottom,var(--color-primary-light-2), var(--color-primary-dark-1));
+  display: inline-block;
+  text-transform: uppercase;
+  position: absolute;
+  top: 5%;
+  left: 0;
+} */

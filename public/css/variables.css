@@ -1,4 +1,6 @@
 :root {
+
+  /* COLORS */
   --color-primary: #d86100;
   --color-primary-light-1: #ff790c;
   --color-primary-light-2: #ff953f;
@@ -14,4 +16,7 @@
   --color-grey-dark-3: #999;
   --color-grey-dark-4: #ced4da;
   --color-grey-dark-5: #eee;
+
+  /* FONT SIZES */
+
 }
