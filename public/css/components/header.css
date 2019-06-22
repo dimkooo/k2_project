@@ -10,6 +10,7 @@
   align-items: center;
   border-bottom: solid 1px var(--color-grey-dark-4);
   position: sticky;
+  z-index: 1;
   top: 0;
   background-color: var(--color-grey-light-1);
 }

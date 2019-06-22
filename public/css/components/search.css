@@ -63,6 +63,10 @@
   background-blend-mode: screen;
 }
 
+.search-booking__apartments:hover {
+  filter: blur(3px) brightness(80%);
+}
+
 .search-booking__apartments-heading {
   font-size: 3.6rem;
   color: var(--color-grey-light-1);
@@ -91,7 +95,7 @@
   position: absolute;
   left: 25%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 50rem);
   font-size: 2.6rem;
   text-transform: uppercase;
   color: var(--color-grey-dark-1);
@@ -99,13 +103,28 @@
   border: 1px solid var(--color-grey-dark-1);
   background-color: var(--color-grey-light-1);
   padding: 1.5rem 4rem;
+  transition: all .5s;
+}
+
+.search-booking__apartments-link:link,
+.search-booking__apartments-link:visited {
+  color: inherit;
+}
+
+.search-booking__apartments:hover .search-booking__apartments-link:active {
+  transform: translate(-50%, -50%);
+}
+
+.search-booking__apartments:hover .search-booking__apartments-link {
+  transform: translate(-50%, -55%);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 .search-booking__hotels-link {
   position: absolute;
   right: 25%;
   top: 50%;
-  transform: translate(50%, -50%);
+  transform: translate(50%, 50rem);
   font-size: 2.6rem;
   text-transform: uppercase;
   color: var(--color-grey-dark-1);
@@ -113,54 +132,19 @@
   border: 1px solid var(--color-grey-dark-1);
   background-color: var(--color-grey-light-1);
   padding: 1.5rem 4rem;
+  transition: all .5s;
 }
 
-/* .search-booking__link {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 50rem;
-  background-size: cover;
-  background-position: center;
+.search-booking__hotels-link:link,
+.search-booking__hotels-link:visited {
+  color: inherit;
 }
 
-.search-booking__img--hotels {
-  background-image: linear-gradient(to right bottom, rgba(216, 97, 0, 0.1), rgba(216, 97, 0, 0.1)),
-    url("../../img/hotel.jpg");
-  clip-path: polygon(56% 0, 100% 0, 100% 100%, 41% 100%);
+.search-booking__hotels:hover .search-booking__hotels-link:active {
+  transform: translate(50%, -50%);
 }
 
-.search-booking__img--hotels:hover {
-  transform: scale(.95);
+.search-booking__hotels:hover .search-booking__hotels-link {
+  transform: translate(50%, -55%);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
-
-.search-booking__img--apartments {
-  background-image: linear-gradient(to right bottom, rgba(216, 97, 0, 0.1), rgba(216, 97, 0, 0.1)),
-  url("../../img/apartments.jpg");
-  clip-path: polygon(0 0, 54% 0, 39% 100%, 0 100%);
-}
-
-.search-booking__hotel-heading {
-  font-size: 3.6rem;
-  color: var(--color-grey-light-1);
-  padding: 1rem 1rem;
-  background-image: linear-gradient(to right bottom,var(--color-primary-light-2), var(--color-primary-dark-1));
-  display: inline-block;
-  text-transform: uppercase;
-  position: absolute;
-  top: 5%;
-  right: 0;
-}
-
-.search-booking__apartments-heading {
-  font-size: 3.6rem;
-  color: var(--color-grey-light-1);
-  padding: 1rem 1rem;
-  background-image: linear-gradient(to right bottom,var(--color-primary-light-2), var(--color-primary-dark-1));
-  display: inline-block;
-  text-transform: uppercase;
-  position: absolute;
-  top: 5%;
-  left: 0;
-} */
