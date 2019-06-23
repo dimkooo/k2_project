@@ -149,6 +149,11 @@
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
+.list-group-horizontal .list-group-item:last-child {
+  border-top-right-radius: .25rem;
+  border-bottom-right-radius: .25rem;
+}
+
 /********************* 
 ** MEDIA QUERIES
 */
