@@ -48,7 +48,7 @@
   background-size: cover;
   background-position: right;
   background-image: linear-gradient(to right bottom, rgba(216, 97, 0, 0.8), rgba(216, 97, 0, 0.8)),
-    url("../../img/hotel.jpg");
+    url("../../img/hotel-1200.jpg");
   clip-path: polygon(0 25%, 100% 0%, 100% 100%, 0 100%);
   background-blend-mode: screen;
 }
@@ -62,7 +62,7 @@
   background-size: cover;
   background-position: center;
   background-image: linear-gradient(to right bottom, rgba(216, 97, 0, 0.8), rgba(216, 97, 0, 0.8)),
-    url("../../img/apartments.jpg");
+    url("../../img/apartments-1200.jpg");
   clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
   background-blend-mode: screen;
 }
@@ -209,7 +209,7 @@
   .search-booking__options {
     height: 45rem;
   }
-  
+
   .search-booking__hotels {
     height: 40rem;
   }
@@ -244,7 +244,7 @@
   .search-booking__options {
     height: 55rem;
   }
-  
+
   .search-booking__hotels {
     height: 50rem;
     padding: 1.5rem 4rem;
@@ -261,4 +261,18 @@
   .search-booking .container {
     max-width: 1140px;
   }
+}
+
+/* Responsive images */
+@media (min-resolution: 192dpi) and (min-width: 576px), (min-width: 2000px) {
+  .search-booking__hotels {
+    background-image: linear-gradient(to right bottom, rgba(216, 97, 0, 0.8), rgba(216, 97, 0, 0.8)),
+      url("../../img/hotel-2000.jpg");
+  }
+
+  .search-booking__apartments {
+    background-position: center;
+    background-image: linear-gradient(to right bottom, rgba(216, 97, 0, 0.8), rgba(216, 97, 0, 0.8)),
+      url("../../img/apartments-2000.jpg");
+    }
 }
