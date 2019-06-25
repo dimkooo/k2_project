@@ -9,13 +9,13 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
   <!-- Bootstrap core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="../src/css/bootstrap.min.css" rel="stylesheet">
   <!-- Material Design Bootstrap -->
-  <link href="css/mdb.min.css" rel="stylesheet">
+  <link href="../src/css/mdb.min.css" rel="stylesheet">
   <!-- Lato Font -->
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900&display=swap" rel="stylesheet">
   <!-- Custom styles -->
-  <link href="css/index.css" rel="stylesheet">
+  <link href="../src/css/index.css" rel="stylesheet">
 </head>
 
 <body>
@@ -28,7 +28,7 @@
         <div class="col-4 col-sm-3 col-lg-2">
           <div class="logo">
             <a class="logo__link" href="http://key.if.ua/">
-              <img class="logo__img" src="./img/logo_edited.png" alt="Key Travel Company">
+              <img class="logo__img" src="../src/img/logo_edited.png" alt="Key Travel Company">
             </a>
           </div>
         </div>
@@ -116,7 +116,7 @@
               </li>
               <li class="list-group-item lang-switcher__item">
                 <a class="lang-switcher__link" href="/ru/">RU</a>
-              </li> 
+              </li>
             </ul>
           </div>
           <button class="burger-button" onclick="onShowSidebar()">
@@ -175,7 +175,7 @@
             <div class="col-4 d-flex justify-content-center align-items-center">
               <div class="panel__logo">
                 <a class="panel__link" href="http://key.if.ua/">
-                  <img class="panel__img" src="./img/logo_edited.png" alt="Key Travel Company">
+                  <img class="panel__img" src="../src/img/logo_edited.png" alt="Key Travel Company">
                 </a>
               </div>
             </div>
@@ -273,6 +273,82 @@
     </div>
   </div>
 
+  <!--Carousel-->
+  <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
+    <!--Indicators-->
+    <ol class="carousel-indicators">
+      <li data-target="#carousel" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel" data-slide-to="1"></li>
+      <li data-target="#carousel" data-slide-to="2"></li>
+    </ol>
+    <!--/.Indicators-->
+
+    <!--Slides-->
+
+    <!--Slide 1-->
+    <div class="carousel-inner" role="listbox">
+      <div class="carousel-item active">
+        <div class="view">
+          <img class="d-block w-100"
+            src="http://r2.ilikewallpaper.net/iphone-panoramic-wallpapers/download/15283/Armenia-Sunset-From-Train-iphone-panoramic-wallpaper-ilikewallpaper_com_200.jpg"
+            alt="First slide">
+          <a href="http://www.key.if.ua/ua/">
+            <div class="mask rgba-black-light"></div>
+          </a>
+        </div>
+        <div class="carousel-caption">
+          <h3 class="h3-responsive">Main text 1</h3>
+          <p>Something else</p>
+        </div>
+      </div>
+      <!--/Slide 1-->
+
+      <!--Slide 2-->
+      <div class="carousel-item">
+        <div class="view">
+          <img class="d-block w-100" src="http://windesk.ru/wp-content/uploads/2014/07/PanoramicAnimals.jpg"
+            alt="Second slide">
+          <a href="http://www.key.if.ua/ua/">
+            <div class="mask rgba-black-light"></div>
+          </a>
+        </div>
+        <div class="carousel-caption">
+          <h3 class="h3-responsive">Main text 2</h3>
+          <p>Something else</p>
+        </div>
+      </div>
+      <!--/Slide 2-->
+
+      <!--Slide 3-->
+      <div class="carousel-item">
+        <div class="view">
+          <img class="d-block w-100" src="http://plitkalife.ru/d/405166/d/142_thumb.jpg" alt="Third slide">
+          <a href="http://www.key.if.ua/ua/">
+            <div class="mask rgba-black-light"></div>
+          </a>
+        </div>
+        <div class="carousel-caption">
+          <h3 class="h3-responsive">Main text 3</h3>
+          <p>Something else</p>
+        </div>
+      </div>
+    </div>
+    <!--/Slide 3-->
+
+    <!--/Slides-->
+    <!--Controls-->
+    <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+    <!--/.Controls-->
+  </div>
+  <!--/.Carousel-->
+
   <!-- SEARCH & BOOKING -->
   <section class="search-booking">
     <div class="container">
@@ -285,7 +361,7 @@
         <div class="col">
           <div class="search-booking__options">
             <div class="search-booking__apartments">
-              <h3 class="search-booking__apartments-heading">Квартири</h3>
+              <h3 class="search-booking__apartments-heading">Апартаменти</h3>
               <a class="search-booking__apartments-link" href="#">Шукати</a>
             </div>
             <div class="search-booking__hotels">
@@ -300,17 +376,17 @@
 
   <!-- SCRIPTS -->
   <!-- JQuery -->
-  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="../src/js/jquery-3.4.1.min.js"></script>
   <!-- Bootstrap tooltips -->
-  <script type="text/javascript" src="js/popper.min.js"></script>
+  <script type="text/javascript" src="../src/js/popper.min.js"></script>
   <!-- Bootstrap core JavaScript -->
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../src/js/bootstrap.min.js"></script>
   <!-- MDB core JavaScript -->
-  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <script type="text/javascript" src="../src/js/mdb.min.js"></script>
   <!-- Hammer -->
-  <script type="text/javascript" src="js/hammer.min.js"></script>
+  <script type="text/javascript" src="../src/js/hammer.min.js"></script>
   <!-- Custome JavaScript code -->
-  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="../src/js/index.js"></script>
 
 </body>
 
