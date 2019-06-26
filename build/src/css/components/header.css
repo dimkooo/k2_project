@@ -1,0 +1,251 @@
+/********************* 
+** HEADER
+*/
+
+.header {
+  font-size: 1.6rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  border-bottom: solid 1px var(--color-grey-dark-4);
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  background-color: var(--color-grey-light-1);
+}
+
+/********************* 
+** LOGO
+*/
+
+.logo {
+  display: flex;
+  /* justify-content: center; */
+}
+
+.logo__link {
+}
+
+.logo__img {
+  width: 8rem;
+}
+
+/********************* 
+** CONTACTS
+*/
+
+.contacts {
+  /* display: none; */
+}
+
+/********************* 
+** EMAIL
+*/
+
+.email {
+  display: inline-block;
+}
+
+.email__link {
+}
+
+.email__link:link,
+.email__link:visited {
+  color: var(--color-grey-dark-1);
+}
+
+.email__link:active,
+.email__link:hover {
+  color: var(--color-primary);
+}
+
+.email__address {
+}
+
+.email__icon {
+  padding-right: 1rem;
+  color: var(--color-primary);
+}
+
+/********************* 
+** TELEPHONES
+*/
+
+.telephone {
+}
+
+.telephone__link {
+  color: inherit;
+}
+
+.telephone__link:active,
+.telephone__link:hover {
+  color: var(--color-primary);
+}
+
+.telephone__number {
+  padding-left: 2rem;
+}
+
+.telephone__icon {
+  padding-left: .3rem;
+  padding-right: 1rem;
+  color: var(--color-primary);
+}
+
+.telephone--offset {
+  padding: 0 0.5rem;
+}
+
+.telephone__heading {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.telephone__forwhom {
+  font-weight: 700;
+}
+
+.telephone__close {
+  font-size: 2.4rem;
+}
+
+/********************* 
+** TELEPHONES
+*/
+
+.search {
+}
+
+.search__input {
+  font-size: inherit;
+  border-top-right-radius: 2.5px !important;
+  border-bottom-right-radius: 2.5px !important;
+}
+
+.search__input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 0.2rem rgba(216, 97, 0,.25);
+}
+
+.search__button {
+  font-size: inherit;
+  background-color: var(--color-grey-light-2);
+  transition: all .2s;
+  display: none;
+}
+
+.search__button:active,
+.search__button:hover {
+  color: var(--color-grey-light-1);
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+/********************* 
+** LANGUAGE SWITCHER
+*/
+
+.lang-switcher {
+  font-size: 1.4rem;
+  justify-content: flex-end;
+  display: none;
+}
+
+.lang-switcher__list {
+
+}
+
+.lang-switcher__item {
+  border-color: var(--color-primary) !important;
+  padding: 0;
+  display: flex;
+  position: relative;
+  z-index: 0 !important;
+  background-color: transparent;
+}
+
+.lang-switcher__item:hover,
+.lang-switcher__item:active {
+  background-color: var(--color-grey-dark-4);
+}
+
+.lang-switcher__link {
+  color: var(--color-grey-dark-1);
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+}
+
+.lang-switcher__link:link,
+.lang-switcher__link:visited {
+  color: var(--color-grey-dark-1);
+}
+
+.active .lang-switcher__link {
+  color: var(--color-grey-light-1);
+}
+
+.list-group .list-group-item.active.lang-switcher__item {
+  background-color: var(--color-primary);
+}
+
+.burger-button {
+  font-size: 2rem;
+  color: var(--color-grey-dark-1);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: var(--color-grey-dark-5);
+  border: 1px solid var(--color-grey-dark-4);
+  border-radius: 2px;
+}
+
+/********************* 
+** MEDIA QUERIES
+*/
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .search__input {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+  }
+  .search__button {
+    display: block;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .burger-button {
+    display: none;
+  }
+
+  .lang-switcher {
+    display: flex;
+  }
+  
+  .header > .container-fluid {
+    max-width: 960px;
+  }
+
+  .header {
+    position: static;
+  }
+
+  .logo__img {
+    width: 12rem;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .header > .container-fluid {
+    max-width: 1140px;
+  }
+}

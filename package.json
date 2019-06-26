@@ -1,7 +1,7 @@
 {
   "name": "key-travel-company",
   "version": "1.0.0",
-  "description": "",
+  "description": "## Ознайомлення Поточна розгорнута версія проекту: [https://key-travel-company.firebaseapp.com ](https://key-travel-company.firebaseapp.com)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,5 +18,6 @@
   "homepage": "https://github.com/dimkooo/k2_project#readme",
   "dependencies": {
     "mdbootstrap": "^4.8.2"
-  }
+  },
+  "devDependencies": {}
 }

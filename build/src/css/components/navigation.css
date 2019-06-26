@@ -1,0 +1,75 @@
+/********************* 
+** NAVIGATION
+*/
+
+.navigation {
+  font-size: 1.6rem;
+  border-bottom: solid 1px var(--color-grey-dark-4);
+  background-color: var(--color-grey-light-1);
+  position: sticky;
+  top: 0;
+  display: none;
+}
+
+.navigation__list {
+
+}
+
+.navigation__item {
+
+}
+
+.navigation__link {
+  color: var(--color-grey-dark-1);
+  text-transform: capitalize;
+}
+
+.navigation__link:active,
+.navigation__link:hover {
+  color: var(--color-grey-dark-1);
+  background-color: var(--color-grey-dark-4);
+}
+
+.navigation .navigation__link.active {
+  color: var(--color-grey-light-1);
+  background-color: var(--color-primary);
+}
+
+/********************* 
+** NAVIGATION
+*/
+
+.navigation .show > .navigation__link {
+  background-color: var(--color-primary);
+}
+
+.dropdown__menu {
+  font-size: 1.4rem;
+  width: 100%;
+}
+
+.dropdown__item {
+
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .navigation {
+    display: block;
+  }
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}

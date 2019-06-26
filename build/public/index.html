@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Туроператор КЕЙ</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="../src/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="../src/css/mdb.min.css" rel="stylesheet">
+  <!-- Lato Font -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900&display=swap" rel="stylesheet">
+  <!-- Custom styles -->
+  <link href="../src/css/index.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!--HEADER-->
+  <header class="header">
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <!-- Logo -->
+        <div class="col-4 col-sm-3 col-lg-2">
+          <div class="logo">
+            <a class="logo__link" href="http://key.if.ua/">
+              <img class="logo__img" src="../src/img/logo_edited.png" alt="Key Travel Company">
+            </a>
+          </div>
+        </div>
+        <!-- Contacts -->
+        <div class="col-lg-3 d-none d-lg-block">
+          <div class="contacts">
+            <!-- Email -->
+            <p class="email">
+              <a class="email__link" href="mailto:zayavka.key@gmail.com">
+                <i class="fas fa-envelope email__icon"></i>
+                zayavka.key@gmail.com</a>
+            </p>
+            <!-- Phone number -->
+            <div class="telephone" data-toggle="modal" data-target="#modalCart">
+              <a class="telephone__link" href="#">
+                <i class="fas fa-mobile-alt telephone__icon"></i>
+                +38<span class="telephone--offset">(066)</span>47-22-792&nbsp;&dtrif;
+              </a>
+              <!-- Modal: modalCart -->
+              <div class="modal fade " id="modalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <!--Header-->
+                    <div class="modal-header">
+                      <h3 class="telephone__heading modal-title" id="myModalLabel">Наші телефони</h3>
+                      <button type="button" class="telephone__close close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                      </button>
+                    </div>
+                    <!--Body-->
+                    <div class="modal-body">
+                      <h4 class="telephone__forwhom"><i class="telephone__icon fas fa-hiking"></i>Туристам</h4>
+                      <p class="telephone__number">
+                        +38<span class="telephone--offset">(066)</span>47-22-792
+                      </p>
+                      <p class="telephone__number">
+                        +38<span class="telephone--offset">(0342)</span>77-73-88
+                      </p>
+                      <h4 class="telephone__forwhom mt-5"><i class="telephone__icon fas fa-briefcase"></i>Агенствам</h4>
+                      <p class="telephone__number">
+                        +38<span class="telephone--offset">(0342)</span>78-43-19
+                      </p>
+                      <p class="telephone__number">
+                        +38<span class="telephone--offset">(0342)</span>78-42-62
+                      </p>
+                      <p class="telephone__number">
+                        +38<span class="telephone--offset">(066)</span>44-21-913
+                      </p>
+                      <p class="telephone__number">
+                        +38<span class="telephone--offset">(066)</span>30-09-122
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Modal: modalCart -->
+            </div>
+          </div>
+        </div>
+        <!-- Search -->
+        <div class="col-6 col-sm-7 col-lg-5">
+          <div class="search">
+            <form class="search__form">
+              <div class="input-group">
+                <input type="text" class="search__input form-control" placeholder="Я шукаю..."
+                  aria-label="Recipient's username" aria-describedby="basic-addon2" name="searchword" value="">
+                <div class="input-group-append">
+                  <button type="submit" value=" " class="search__button input-group-text"
+                    onclick="this.form.searchword.focus();">
+                    Знайти
+                  </button>
+                </div>
+              </div>
+
+            </form>
+          </div>
+        </div>
+        <!-- Languages -->
+        <div class="col-2 d-flex justify-content-end align-items-start">
+          <div class="lang-switcher">
+            <ul class="list-group list-group-horizontal lang-switcher__list">
+              <li class="list-group-item active lang-switcher__item">
+                <a class="lang-switcher__link" href="/ua/">UA</a>
+              </li>
+              <li class="list-group-item lang-switcher__item">
+                <a class="lang-switcher__link" href="/ru/">RU</a>
+              </li>
+            </ul>
+          </div>
+          <button class="burger-button" onclick="onShowSidebar()">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+  </header>
+
+  <!-- NAVIGATION -->
+  <nav class="navigation">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <ul class="navigation__list nav nav-pills nav-fill">
+            <li class="navigation__item nav-item">
+              <a class="navigation__link nav-link active" href="/ua/">Головна</a>
+            </li>
+            <li class="navigation__item nav-item">
+              <a class="navigation__link nav-link" href="/ua/pro-nas">Про нас</a>
+            </li>
+            <li class="navigation__item nav-item dropdown">
+              <a class="navigation__link nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                aria-haspopup="true" aria-expanded="false">Агенствам</a>
+              <div class="dropdown__menu dropdown-menu">
+                <a class="dropdown__item dropdown-item" href="/ua/2013-02-18-10-15-53/reklamni-tury">Інфотури</a>
+                <a class="dropdown__item dropdown-item" href="/ua/2013-02-18-10-15-53/vzirtsi-dokumenti">Взірці
+                  документів</a>
+                <a class="dropdown__item dropdown-item" href="/ua/2013-02-18-10-15-53/ahentam-dlia-spivpratsi">Агентам
+                  для співпраці</a>
+                <a class="dropdown__item dropdown-item" href="/ua/2013-02-18-10-15-53/rozsulka">Розсилка</a>
+              </div>
+            </li>
+            <li class="navigation__item nav-item">
+              <a class="navigation__link nav-link" href="/ua/kontakty">Контакти</a>
+            </li>
+            <li class="navigation__item nav-item">
+              <a class="navigation__link nav-link" href="/ua/poshuk-hoteliu">Онлайн бронювання готелів</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- SIDEBAR & DROPBACK -->
+  <div class="sidebar">
+    <!-- Backdrop -->
+    <div class="backdrop" id="backdrop" onclick="onHideSidebar()"></div>
+    <!-- Sidebar -->
+    <div class="panel" id="panel">
+      <div class="panel__header">
+        <div class="container">
+          <div class="row">
+            <!-- Logo -->
+            <div class="col-4 d-flex justify-content-center align-items-center">
+              <div class="panel__logo">
+                <a class="panel__link" href="http://key.if.ua/">
+                  <img class="panel__img" src="../src/img/logo_edited.png" alt="Key Travel Company">
+                </a>
+              </div>
+            </div>
+            <!-- Languages -->
+            <div class="col-5 d-flex justify-content-center">
+              <div class="panel__lang-switcher mt-3">
+                <ul class="list-group list-group-horizontal lang-switcher__list">
+                  <li class="list-group-item active lang-switcher__item">
+                    <a class="lang-switcher__link" href="/ua/">UA</a>
+                  </li>
+                  <li class="list-group-item lang-switcher__item">
+                    <a class="lang-switcher__link" href="/ru/">RU</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- Button close -->
+            <div class="col-3 d-flex justify-content-center">
+              <button class="panel__close-button" onclick="onHideSidebar()">
+                <i class="far fa-times-circle"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ul class="panel__nav">
+        <!-- Home -->
+        <li class="panel__nav-item">
+          <a class="panel__nav-link panel__nav-link--activated" href="/ua/">Головна</a>
+        </li>
+        <!-- About us -->
+        <li class="panel__nav-item">
+          <a class="panel__nav-link" href="/ua/pro-nas">Про нас</a>
+        </li>
+        <!-- For agencies -->
+        <li class="panel__nav-item">
+          <a class="panel__nav-link" href="#to-agencies" data-toggle="collapse" role="button" aria-expanded="false"
+            aria-controls="collapseExample">Агенствам&nbsp;&dtrif;</a>
+          <div class="collapse" id="to-agencies">
+            <a class="collapse__item dropdown-item" href="/ua/2013-02-18-10-15-53/reklamni-tury">Інфотури</a>
+            <a class="collapse__item dropdown-item" href="/ua/2013-02-18-10-15-53/vzirtsi-dokumenti">Взірці
+              документів</a>
+            <a class="collapse__item dropdown-item" href="/ua/2013-02-18-10-15-53/ahentam-dlia-spivpratsi">Агентам
+              для співпраці</a>
+            <a class="collapse__item dropdown-item" href="/ua/2013-02-18-10-15-53/rozsulka">Розсилка</a>
+          </div>
+        </li>
+        <!-- Contacts -->
+        <li class="panel__nav-item">
+          <a class="panel__nav-link" href="/ua/kontakty">Контакти</a>
+        </li>
+        <!-- Online booking -->
+        <li class="panel__nav-item">
+          <a class="panel__nav-link" href="/ua/poshuk-hoteliu">Онлайн бронювання готелів</a>
+        </li>
+        <!-- Email -->
+        <li class="panel__nav-item">
+          <a class="panel__nav-link" href="#our-email" data-toggle="collapse" role="button" aria-expanded="false"
+            aria-controls="collapseExample">Наша електронна скринька&nbsp;&dtrif;</a>
+          <div class="collapse" id="our-email">
+            <a class="collapse__item dropdown-item" href="mailto:zayavka.key@gmail.com">
+              <i class="fas fa-envelope email__icon"></i>
+              zayavka.key@gmail.com
+            </a>
+          </div>
+        </li>
+        <!-- Phone numbers -->
+        <li class="panel__nav-item">
+          <a class="panel__nav-link" href="#our-tels" data-toggle="collapse" role="button" aria-expanded="false"
+            aria-controls="collapseExample">Наші телефони&nbsp;&dtrif;</a>
+          <div class="collapse" id="our-tels">
+            <h4 class="collapse__for-whom dropdown-item"><i class="telephone__icon fas fa-hiking"></i>Туристам</h4>
+            <p class="collapse__number dropdown-item">
+              +38<span class="telephone--offset">(066)</span>47-22-792
+            </p>
+            <p class="collapse__number dropdown-item">
+              +38<span class="telephone--offset">(0342)</span>77-73-88
+            </p>
+            <h4 class="collapse__for-whom dropdown-item"><i class="telephone__icon fas fa-briefcase"></i>Агенствам</h4>
+            <p class="collapse__number dropdown-item">
+              +38<span class="telephone--offset">(0342)</span>78-43-19
+            </p>
+            <p class="collapse__number dropdown-item">
+              +38<span class="telephone--offset">(0342)</span>78-42-62
+            </p>
+            <p class="collapse__number dropdown-item">
+              +38<span class="telephone--offset">(066)</span>44-21-913
+            </p>
+            <p class="collapse__number dropdown-item">
+              +38<span class="telephone--offset">(066)</span>30-09-122
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!--Carousel-->
+  <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
+    <!--Indicators-->
+    <ol class="carousel-indicators">
+      <li data-target="#carousel" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel" data-slide-to="1"></li>
+      <li data-target="#carousel" data-slide-to="2"></li>
+    </ol>
+    <!--/.Indicators-->
+
+    <!--Slides-->
+
+    <!--Slide 1-->
+    <div class="carousel-inner" role="listbox">
+      <div class="carousel-item active">
+        <div class="view">
+          <img class="d-block w-100"
+            src="http://r2.ilikewallpaper.net/iphone-panoramic-wallpapers/download/15283/Armenia-Sunset-From-Train-iphone-panoramic-wallpaper-ilikewallpaper_com_200.jpg"
+            alt="First slide">
+          <a href="http://www.key.if.ua/ua/">
+            <div class="mask rgba-black-light"></div>
+          </a>
+        </div>
+        <div class="carousel-caption">
+          <h3 class="h3-responsive">Main text 1</h3>
+          <p>Something else</p>
+        </div>
+      </div>
+      <!--/Slide 1-->
+
+      <!--Slide 2-->
+      <div class="carousel-item">
+        <div class="view">
+          <img class="d-block w-100" src="http://windesk.ru/wp-content/uploads/2014/07/PanoramicAnimals.jpg"
+            alt="Second slide">
+          <a href="http://www.key.if.ua/ua/">
+            <div class="mask rgba-black-light"></div>
+          </a>
+        </div>
+        <div class="carousel-caption">
+          <h3 class="h3-responsive">Main text 2</h3>
+          <p>Something else</p>
+        </div>
+      </div>
+      <!--/Slide 2-->
+
+      <!--Slide 3-->
+      <div class="carousel-item">
+        <div class="view">
+          <img class="d-block w-100" src="http://plitkalife.ru/d/405166/d/142_thumb.jpg" alt="Third slide">
+          <a href="http://www.key.if.ua/ua/">
+            <div class="mask rgba-black-light"></div>
+          </a>
+        </div>
+        <div class="carousel-caption">
+          <h3 class="h3-responsive">Main text 3</h3>
+          <p>Something else</p>
+        </div>
+      </div>
+    </div>
+    <!--/Slide 3-->
+
+    <!--/Slides-->
+    <!--Controls-->
+    <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+    <!--/.Controls-->
+  </div>
+  <!--/.Carousel-->
+
+  <!-- SEARCH & BOOKING -->
+  <section class="search-booking">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h2 class="search-booking__heading">Пошук та бронювання</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="search-booking__options">
+            <div class="search-booking__apartments">
+              <h3 class="search-booking__apartments-heading">Апартаменти</h3>
+              <a class="search-booking__apartments-link" href="#">Шукати</a>
+            </div>
+            <div class="search-booking__hotels">
+              <h3 class="search-booking__hotels-heading">Готелі</h3>
+              <a class="search-booking__hotels-link" href="#">Шукати</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="../src/js/jquery-3.4.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="../src/js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="../src/js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="../src/js/mdb.min.js"></script>
+  <!-- Hammer -->
+  <script type="text/javascript" src="../src/js/hammer.min.js"></script>
+  <!-- Custome JavaScript code -->
+  <script type="text/javascript" src="../src/js/index.js"></script>
+
+</body>
+
+</html>
