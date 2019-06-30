@@ -12,25 +12,10 @@
   max-width: 100%;
 }
 
-.search-booking__heading {
-  color: transparent;
-  text-transform: uppercase;
-  font-size: 2.6rem;
-  font-weight: 700;
-  text-align: center;
-  letter-spacing: 0.2rem;
-  background-image: linear-gradient(to right, var(--color-primary-light-2), var(--color-primary-dark-1));
-  display: inline-block;
-  -webkit-background-clip: text;
-  word-spacing: 0.5rem;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-}
-
-.search-booking .row > .col {
+/* .search-booking .row > .col {
   display: flex;
   justify-content: center;
-}
+} */
 
 .search-booking__options {
   width: 100%;
@@ -164,11 +149,6 @@
     height: 35rem;
   }
 
-  .search-booking__heading {
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
-  }
-
   .search-booking__apartments {
     position: absolute;
     clip-path: polygon(0 0, 54% 0, 39% 100%, 0 100%);
@@ -199,9 +179,6 @@
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-  .search-booking__heading {
-    font-size: 3.6rem;
-  }
 
   .search-booking__apartments-heading {
     font-size: 2.8rem;

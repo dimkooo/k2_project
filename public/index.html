@@ -124,6 +124,7 @@
           </button>
         </div>
       </div>
+    </div>
   </header>
 
   <!-- NAVIGATION -->
@@ -309,10 +310,10 @@
       <div class="row">
         <form method="post" action="send" class="contact-form needs-validation" novalidate>
           <div class="container">
-            <!-- Name -->
+            <!-- First Name -->
             <div class="row">
               <div class="col-4 d-flex justify-content-end">
-                <label for="customer-name" class="contact-form__label">Ім'я</label>
+                <label for="customer-name" class="contact-form__label">Ім'я<sup>*</sup></label>
               </div>
               <div class="col-8">
                 <input type="text" class="contact-form__input form-control" name="customer-name" id="customer-name"
@@ -322,10 +323,36 @@
                 </div>
               </div>
             </div>
+            <!-- Last Name -->
+            <div class="row">
+              <div class="col-4 d-flex justify-content-end">
+                <label for="customer-name" class="contact-form__label">Прізвище</label>
+              </div>
+              <div class="col-8">
+                <input type="text" class="contact-form__input form-control" name="customer-name" id="customer-name"
+                  placeholder="Ваше прізвище" pattern="[A-Za-zЄ-ЯҐа-їґ]{2,}" />
+                <div class="invalid-feedback">
+                  Будь ласка, вкажіть своє прізвище. Тільки літери.
+                </div>
+              </div>
+            </div>
+            <!-- Middle Name -->
+            <div class="row">
+              <div class="col-4 d-flex justify-content-end">
+                <label for="customer-name" class="contact-form__label">Ім'я по батькові</label>
+              </div>
+              <div class="col-8">
+                <input type="text" class="contact-form__input form-control" name="customer-name" id="customer-name"
+                  placeholder="Ваше ім'я по батькові" pattern="[A-Za-zЄ-ЯҐа-їґ]{2,}" />
+                <div class="invalid-feedback">
+                  Будь ласка, вкажіть своє ім'я по батькові. Тільки літери.
+                </div>
+              </div>
+            </div>
             <!-- Phone -->
             <div class="row">
               <div class="col-4 d-flex justify-content-end">
-                <label for="customer-tel" class="contact-form__label">Номер телефону</label>
+                <label for="customer-tel" class="contact-form__label">Номер телефону<sup>*</sup></label>
               </div>
               <div class="col-8">
                 <input type="tel" class="contact-form__input  form-control" name="customer-tel" id="customer-tel"
@@ -342,7 +369,7 @@
               </div>
               <div class="col-8">
                 <input type="email" class="contact-form__input form-control" name="customer-email" id="customer-email"
-                  placeholder="Ваш email" required>
+                  placeholder="Ваш email">
                 <div class="invalid-feedback">
                   Будь ласка, вкажіть свій email.
                 </div>
@@ -351,14 +378,15 @@
             <!-- Message -->
             <div class="row">
               <div class="col-4 d-flex justify-content-end">
-                <label for="customer-message" class="contact-form__label">Повідомлення</label>
+                <label for="customer-message" class="contact-form__label">Повідомлення<sup>*</sup></label>
               </div>
               <div class="col-8">
                 <textarea class="contact-form__textareat form-control" name="customer-message" id="customer-message"
-                  placeholder="Ваше запитання або замовлення" required></textarea>
+                  placeholder="Ваше повідомлення" required></textarea>
                 <div class="invalid-feedback">
-                  Будь ласка, вкажіть свіє повідомлення.
+                  Будь ласка, вкажіть своє повідомлення.
                 </div>
+                <p class="contact-form__mark-definition"><sup>*</sup> &mdash; Обов'язкові поля для заповнення</p>
               </div>
             </div>
             <!-- Submit -->
