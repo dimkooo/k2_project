@@ -1,0 +1,123 @@
+/********************* 
+** SEND MESSAGE
+*/
+
+.send-message {
+  font-size: 1.6rem;
+  position: relative;
+  z-index: -100;
+  line-height: 1.6;
+}
+
+.send-message .container {
+  max-width: 100%;
+}
+
+.contact-form {
+  width: 100%;
+}
+
+.contact-form .row {
+  padding-bottom: 0.7rem;
+}
+
+.contact-form__label {
+  padding: 0.7rem;
+  width: 100%;
+}
+
+.contact-form__input {
+  font-size: inherit;
+  height: auto;
+}
+
+.contact-form__input::placeholder {
+  content: '*';
+}
+
+.contact-form__input::placeholder {
+  text-transform: capitalize;
+}
+
+.contact-form__textareat {
+  font-size: inherit;
+  text-transform: capitalize;
+  height: 10rem !important;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  width: 100% !important;
+  padding: 0.7rem;
+  border: 1px solid var(--color-grey-light-4);
+}
+
+.contact-form *:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 0.2rem rgba(216, 97, 0, 0.25);
+}
+
+.contact-form__submit {
+  font-size: 2.2rem;
+  color: var(--color-grey-light-1);
+  border: 1px solid var(--color-primary);
+  background-color: var(--color-primary);
+  padding: 1rem 3rem;
+  border-radius: 10rem;
+  text-transform: uppercase;
+  margin-top: 2rem;
+  margin-bottom: 20rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
+}
+
+.contact-form__submit:active {
+  transform: translateY(5%);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.2);
+}
+
+.contact-form__mark-definition {
+  padding-top: 1.25rem;
+}
+
+/********************* 
+** MEDIA QUERIES
+*/
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .contact-form__label {
+    width: 70%;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    width: 80% !important;
+  }
+}
+
+.contact-form__result-sending {
+  color: var(--color-red-1);
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .send-message .container {
+    max-width: 960px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .send-message .container {
+    max-width: 1140px;
+  }
+}

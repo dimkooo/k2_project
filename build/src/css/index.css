@@ -1,9 +1,0 @@
-@import './base.css';
-@import './variables.css';
-
-@import './components/header.css';
-@import './components/navigation.css';
-@import './components/sidebar.css';
-@import './components/search.css';
-@import './components/send-message.css';
-@import './components/headings.css';

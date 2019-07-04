@@ -29,7 +29,7 @@
         <!-- Logo -->
         <div class="col-4 col-sm-3 col-lg-2">
           <div class="logo">
-            <a class="logo__link" href="http://key.if.ua/">
+            <a class="logo__link" href="#">
               <img class="logo__img" src="./img/logo_edited.png" alt="Key Travel Company">
             </a>
           </div>
@@ -177,7 +177,7 @@
             <!-- Logo -->
             <div class="col-4 d-flex justify-content-center align-items-center">
               <div class="panel__logo">
-                <a class="panel__link" href="http://key.if.ua/">
+                <a class="panel__link" href="#">
                   <img class="panel__img" src="./img/logo_edited.png" alt="Key Travel Company">
                 </a>
               </div>
@@ -362,11 +362,11 @@
       <div class="row">
         <div class="col">
           <div class="search-booking__options">
-            <div class="search-booking__apartments">
+            <div class="search-booking__apartments animated fadeInLeft slow">
               <h3 class="search-booking__apartments-heading">Апартаменти</h3>
               <a class="search-booking__apartments-link" href="#">Шукати</a>
             </div>
-            <div class="search-booking__hotels">
+            <div class="search-booking__hotels animated fadeInRight slow">
               <h3 class="search-booking__hotels-heading">Готелі</h3>
               <a class="search-booking__hotels-link" href="#">Шукати</a>
             </div>
@@ -377,7 +377,7 @@
   </section>
 
   <!-- SEND MESSAGE -->
-  <section class="send-message">
+  <section class="send-message animated fadeInUp">
     <div class="container">
       <div class="row">
         <div class="col">
@@ -385,16 +385,16 @@
         </div>
       </div>
       <div class="row">
-        <form method="post" action="send" class="contact-form needs-validation" novalidate>
+        <form method="POST" action="send" class="contact-form needs-validation">
           <div class="container">
             <!-- First Name -->
             <div class="row">
               <div class="d-none d-sm-flex col-sm-4 justify-content-end">
-                <label for="customer-name" class="contact-form__label">Ім'я</label>
+                <label for="customer-first-name" class="contact-form__label">Ім'я</label>
               </div>
               <div class="col col-sm-8">
-                <input type="text" class="contact-form__input form-control" name="customerFirstName" id="customer-first-name"
-                  placeholder="&#8277;Ваше ім'я" pattern="[A-Za-zЄ-ЯҐа-їґ]{2,}" required />
+                <input type="text" class="contact-form__input form-control" name="customerFirstName"
+                  id="customer-first-name" placeholder="&#8277;Ваше ім'я" pattern="[A-Za-zЄ-ЯҐа-їґ]{2,}" required />
                 <div class="invalid-feedback">
                   Будь ласка, вкажіть своє ім'я. Тільки літери.
                 </div>
@@ -403,11 +403,11 @@
             <!-- Last Name -->
             <div class="row">
               <div class="d-none d-sm-flex col-sm-4 justify-content-end">
-                <label for="customer-name" class="contact-form__label">Прізвище</label>
+                <label for="customer-last-name" class="contact-form__label">Прізвище</label>
               </div>
               <div class="col col-sm-8">
-                <input type="text" class="contact-form__input form-control" name="customerLastName" id="customer-last-name"
-                  placeholder="Ваше прізвище" pattern="[A-Za-zЄ-ЯҐа-їґ]{2,}" />
+                <input type="text" class="contact-form__input form-control" name="customerLastName"
+                  id="customer-last-name" placeholder="Ваше прізвище" pattern="[A-Za-zЄ-ЯҐа-їґ]{2,}" />
                 <div class="invalid-feedback">
                   Будь ласка, вкажіть своє прізвище. Тільки літери.
                 </div>
@@ -416,11 +416,11 @@
             <!-- Middle Name -->
             <div class="row">
               <div class="d-none d-sm-flex col-sm-4 justify-content-end">
-                <label for="customer-name" class="contact-form__label">Ім'я по батькові</label>
+                <label for="customer-middle-name" class="contact-form__label">Ім'я по батькові</label>
               </div>
               <div class="col col-sm-8">
-                <input type="text" class="contact-form__input form-control" name="customerMiddleName" id="customer-middle-name"
-                  placeholder="Ваше ім'я по батькові" pattern="[A-Za-zЄ-ЯҐа-їґ]{2,}" />
+                <input type="text" class="contact-form__input form-control" name="customerMiddleName"
+                  id="customer-middle-name" placeholder="Ваше ім'я по батькові" pattern="[A-Za-zЄ-ЯҐа-їґ]{2,}" />
                 <div class="invalid-feedback">
                   Будь ласка, вкажіть своє ім'я по батькові. Тільки літери.
                 </div>
@@ -429,7 +429,7 @@
             <!-- Phone -->
             <div class="row">
               <div class="d-none d-sm-flex col-sm-4 justify-content-end">
-                <label for="customer-tel" class="contact-form__label">Номер телефону<sup>*</sup></label>
+                <label for="customer-tel" class="contact-form__label">Номер телефону</label>
               </div>
               <div class="col col-sm-8">
                 <input type="tel" class="contact-form__input  form-control" name="customerTel" id="customer-tel"
@@ -445,7 +445,7 @@
                 <label for="customer-email" class="contact-form__label">Email</label>
               </div>
               <div class="col col-sm-8">
-                <input type="email" class="contact-form__input form-control" name="customer-email" id="customer-email"
+                <input type="email" class="contact-form__input form-control" name="customerEmail" id="customer-email"
                   placeholder="Ваш email">
                 <div class="invalid-feedback">
                   Будь ласка, вкажіть свій email.
@@ -466,6 +466,15 @@
                 <p class="contact-form__mark-definition">&#8277; &mdash; Обов'язкове поле для заповнення</p>
               </div>
             </div>
+            <!-- Result -->
+            <div class="row">
+              <div class="d-none d-sm-flex col-sm-4 justify-content-end">
+              </div>
+              <div class="col col-sm-8">
+                <p class="contact-form__result-sending">{{msg}}</p>
+              </div>
+            </div>
+
             <!-- Submit -->
             <div class="row">
               <div class="col d-flex justify-content-center">
