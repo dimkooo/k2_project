@@ -27,24 +27,16 @@ var hammerHide = new Hammer(panel);
 hammerHide.on('swipe', onHideSidebar);
 hammerHide.get('swipe').set({ direction: Hammer.DIRECTION_LEFT });
 
-///////////////////////
-// SEND MESSAGE
+///////////////////////////
+// ВІДПРАВИТИ ПОВІДОМЛЕННЯ
 
-// валідація форми
-(function() {
-  'use strict';
-  window.addEventListener('load', function() {
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.getElementsByClassName('needs-validation');
-    // Loop over them and prevent submission
-    var validation = Array.prototype.filter.call(forms, function(form) {
-      form.addEventListener('submit', function(event) {
-        if (form.checkValidity() === false) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add('was-validated');
-      }, false);
-    });
-  }, false);
-})();
+var customerMessageForm = document.getElementById('customer-message-form');
+function onSubmitCustomerMessage(event) {
+    if (event) { event.preventDefault() }
+    const firstName = document.getElementById('customer-first-name').value;
+    console.log(firstName);
+    // do AJAX stuff...
+    console.log('submitted');
+}
+customerMessageForm.addEventListener('submit', onSubmitCustomerMessage, false);
+// customerMessageForm.submit = onSubmitCustomerMessage;
