@@ -1,29 +1,22 @@
 const functions = require('firebase-functions');
-const express = require('express');
-const bodyParser = require('body-parser');
-const exphbs = require('express-handlebars');
+const express = require('express');;
 const path = require('path');
 const nodemailer = require('nodemailer');
 
 const app = express();
 
-// View engine setup
-// app.engine('handlebars', exphbs());
-// app.set('view engine', 'handlebars');
-
-// Static folder
+// налаштувати статичний каталог
 app.use('public', express.static(path.join(__dirname, 'public')));
-
-// Body Parser Middleware
-// app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(bodyParser.json());
+// підключти доступ до об'єкту req.body методу POST
 app.use(express.json());
 
+// тестування
 app.post('/test', (req, res) => {
   res.send(req.body);
-  console.log('>>> ', req.body.firstName);
+  console.log('> body ', req.body.tel);
 });
 
+// підготувати та відправити повідомлення користувача
 app.post('/send', (req, res) => {
   const message = 'Повідомлення було успішно відправлено! Дякуємо.'
   // const lastName = req.body.customerLastName ? `<li>Прізвище: ${req.body.customerLastName}</li>` : null;
@@ -33,48 +26,43 @@ app.post('/send', (req, res) => {
     <div>
       <h3>Ви отримали нове повідомлення:</h3>
       <br />
-      <p>${req.body.customerMessage}</p>
+      <p>${req.body.message}</p>
       <br />
       <h3>Від:</h3>
       <ul>  
-        <li>Ім'я: ${req.body.customerFirstName}</li>
-        <li>Прізвище: ${req.body.customerLastName}</li>
-        <li>Ім'я по батькові: ${req.body.customerMiddleName}</li>
-        <li>Телефон: ${req.body.customerTel}</li>
-        <li>Email: ${req.body.customerEmail}</li>
+        <li>Ім'я: ${req.body.firstName}</li>
+        <li>Прізвище: ${req.body.lastName}</li>
+        <li>Ім'я по батькові: ${req.body.middleName}</li>
+        <li>Телефон: ${req.body.tel}</li>
+        <li>Email: ${req.body.email}</li>
       </ul>
     </div>
   `;
 
-  // create reusable transporter object using the default SMTP transport
+  // створити транспортер
   let transporter = nodemailer.createTransport({
     service: 'gmail',
     port: 587,
-    secure: false, // true for 465, false for other ports
+    secure: false, 
     auth: {
-      user: 'victor.s.snow@gmail.com', // generated ethereal user
-      pass: 'W$m64rNoOM#Z'  // generated ethereal password
+      user: 'victor.s.snow@gmail.com', 
+      pass: 'W$m64rNoOM#Z'  
     }
   });
 
-  // setup email data with unicode symbols
+  // зібрати повідомлення
   let mailOptions = {
-    from: '"Туроператор KEY" <victor.s.snow@gmail.com>', // sender address
-    to: 'vik8174@gmail.com', // list of receivers
-    subject: 'Нове Повідомлення', // Subject line
-    // text: 'Hello world?', // plain text body
-    html: output // html body
+    from: '"Туроператор KEY" <victor.s.snow@gmail.com>', 
+    to: 'vik8174@gmail.com', 
+    subject: 'Нове Повідомлення', 
+    // text: 'Hello world?', 
+    html: output 
   };
 
-  // send mail with defined transport object
+  // відправити зібране повідомлення
   transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      return console.log(error);
-    }
-    console.log('Message sent: %s', info.messageId);
-    console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-
-    res.render('contact', { layout: false, msg: message });
+    if (error) { return console.log(error) }
+    res.send(true);
   });
 });
 

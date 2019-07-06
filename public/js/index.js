@@ -31,21 +31,32 @@ hammerHide.get('swipe').set({ direction: Hammer.DIRECTION_LEFT });
 // ВІДПРАВИТИ ПОВІДОМЛЕННЯ
 
 const customerMessageForm = document.getElementById('customer-message-form');
-function onSubmitCustomerMessage(event) {
+const onSubmitCustomerMessage = (event) => {
     if (event) { event.preventDefault() }
     const firstName = document.getElementById('customer-first-name').value;
-    // console.log(firstName);
+    const lastName = document.getElementById('customer-last-name').value;
+    const middleName = document.getElementById('customer-middle-name').value;
+    const tel = document.getElementById('customer-tel').value;
+    const email = document.getElementById('customer-email').value;
+    const message = document.getElementById('customer-message').value;
 
     // AJAX
     const xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-        console.log('> response', this.responseText);
+        console.log('> Response:', this.responseText);
       }
     };
-    xhttp.open("POST", "/test", true);
+    xhttp.open("POST", "/send", true);
     xhttp.setRequestHeader("Content-type", "application/json");
-    xhttp.send(JSON.stringify({firstName: firstName})); 
+    xhttp.send(JSON.stringify({
+      firstName: firstName,
+      lastName: lastName,
+      middleName: middleName,
+      tel: tel,
+      email: email,
+      message: message
+    })); 
     console.log('submitted');
 }
 customerMessageForm.addEventListener('submit', onSubmitCustomerMessage, false);
