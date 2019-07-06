@@ -1,36 +1,40 @@
-.sender {
-
-}
-
-/* BACKDROP */
-
-.sender__backdrop {
+.loader {
   position: fixed;
   top: 0;
+  left: 0;
   right: 0;
   bottom: 0;
-  left: 0;
-  background-color: transparent;
-  opacity: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1000;
-  transition: all 0.2s ease;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  z-index: -100;
 
-.sender__backdrop--shown {
   background-color: #000;
   opacity: 0.6;
-  z-index: 1040;
+  transition: all 0.2s ease;
+}
+
+.loader--shown {
+  z-index: 100;
+}
+
+/* MODAL */
+.loader__modal {
+  width: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* SPINNER */
+.loader__spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
 
 .lds-spinner {
-  color: transparent;
+  color: var(--color-grey-light-1);
   display: inline-block;
   position: absolute;
   width: 64px;

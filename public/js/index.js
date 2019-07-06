@@ -2,8 +2,8 @@
 // SIDEBAR
 
 const backdrop = document.getElementById('backdrop');
-const senderBackdrop = document.getElementById('sender-backdrop');
 const panel = document.getElementById('panel');
+const loader = document.getElementById('loader');
 
 // встановити ширину sidebar
 var bodyWidth = document.getElementsByTagName('body')[0].offsetWidth;
@@ -45,8 +45,8 @@ const onSubmitCustomerMessage = (event) => {
     const xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-        console.log('> Response:', this.responseText);
-        senderBackdrop.classList.remove('sender__backdrop--shown');
+        console.log('> Відповідь:', this.responseText);
+        loader.classList.remove('loader--shown');
       }
     };
     xhttp.open("POST", "/send", true);
@@ -59,10 +59,10 @@ const onSubmitCustomerMessage = (event) => {
       email: email,
       message: message
     })); 
-    console.log('> Відправлено');
+    console.log('> Форма відправлена');
 
     // активувати backdrop
-    senderBackdrop.classList.add('sender__backdrop--shown');
+    loader.classList.add('loader--shown');
 }
 customerMessageForm.addEventListener('submit', onSubmitCustomerMessage, false);
 // customerMessageForm.submit = onSubmitCustomerMessage;

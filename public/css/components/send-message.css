@@ -4,9 +4,9 @@
 
 .send-message {
   font-size: 1.6rem;
-  position: relative;
-  z-index: -100;
   line-height: 1.6;
+  z-index: 0;
+  background-color: var(--color-grey-light-1);
 }
 
 .send-message .container {

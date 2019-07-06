@@ -62,7 +62,7 @@ app.post('/send', (req, res) => {
   // відправити зібране повідомлення
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) { return console.log(error) }
-    res.send(true);
+    res.send('Лист відправлено успішно');
   });
 });
 
