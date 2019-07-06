@@ -479,8 +479,8 @@
   </section>
 
   <!-- LOADER -->
-  <div class="loader" id="loader">
-    <div class="loader__spinner lds-spinner">
+  <div class="loader" id="loader" onclick="hideLoader()">
+    <div class="loader__spinner lds-spinner" id="loader-spinner">
       <div></div>
       <div></div>
       <div></div>
@@ -494,10 +494,9 @@
       <div></div>
       <div></div>
     </div>
-    <!-- Modal -->
-    <!-- <div class="sender__modal modal-content">
+    <div class="loader__modal modal-content" id="loader-modal">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="hideLoader()">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -506,9 +505,9 @@
         <p class="sender__message"></p>
       </div>
       <div class="modal-footer d-flex justify-content-center">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="hideLoader()">OK</button>
       </div>
-    </div> -->
+    </div>
   </div>
 
   <!-- Button trigger modal -->
