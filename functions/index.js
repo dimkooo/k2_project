@@ -6,7 +6,7 @@ const nodemailer = require('nodemailer');
 const app = express();
 
 // налаштувати статичний каталог
-app.use('public', express.static(path.join(__dirname, 'public')));
+// app.use('public', express.static(path.join(__dirname, 'public')));
 // підключти доступ до об'єкту req.body методу POST
 app.use(express.json());
 
