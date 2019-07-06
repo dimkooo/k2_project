@@ -30,22 +30,22 @@ hammerHide.get('swipe').set({ direction: Hammer.DIRECTION_LEFT });
 ///////////////////////////
 // ВІДПРАВИТИ ПОВІДОМЛЕННЯ
 
-var customerMessageForm = document.getElementById('customer-message-form');
+const customerMessageForm = document.getElementById('customer-message-form');
 function onSubmitCustomerMessage(event) {
     if (event) { event.preventDefault() }
     const firstName = document.getElementById('customer-first-name').value;
-    console.log(firstName);
+    // console.log(firstName);
 
-
-    // do AJAX stuff...
+    // AJAX
     const xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-        console.log('> server', this.responseText);
+        console.log('> response', this.responseText);
       }
     };
     xhttp.open("POST", "/test", true);
-    xhttp.send(); 
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send(JSON.stringify({firstName: firstName})); 
     console.log('submitted');
 }
 customerMessageForm.addEventListener('submit', onSubmitCustomerMessage, false);

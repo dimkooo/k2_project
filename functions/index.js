@@ -8,20 +8,20 @@ const nodemailer = require('nodemailer');
 const app = express();
 
 // View engine setup
-app.engine('handlebars', exphbs());
-app.set('view engine', 'handlebars');
+// app.engine('handlebars', exphbs());
+// app.set('view engine', 'handlebars');
 
 // Static folder
 app.use('public', express.static(path.join(__dirname, 'public')));
 
 // Body Parser Middleware
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
-
+// app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
+app.use(express.json());
 
 app.post('/test', (req, res) => {
-  res.send('Hello:)');
+  res.send(req.body);
+  console.log('>>> ', req.body.firstName);
 });
 
 app.post('/send', (req, res) => {
