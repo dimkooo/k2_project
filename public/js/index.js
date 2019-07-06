@@ -35,7 +35,17 @@ function onSubmitCustomerMessage(event) {
     if (event) { event.preventDefault() }
     const firstName = document.getElementById('customer-first-name').value;
     console.log(firstName);
+
+
     // do AJAX stuff...
+    const xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        console.log('> server', this.responseText);
+      }
+    };
+    xhttp.open("POST", "/test", true);
+    xhttp.send(); 
     console.log('submitted');
 }
 customerMessageForm.addEventListener('submit', onSubmitCustomerMessage, false);
