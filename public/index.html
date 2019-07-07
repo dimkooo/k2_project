@@ -469,7 +469,7 @@
             <!-- Submit -->
             <div class="row">
               <div class="col d-flex justify-content-center">
-                <button class="contact-form__submit" type="submit">Відправити</button>
+                <button class="button-full" type="submit">Відправити</button>
               </div>
             </div>
           </div>
@@ -495,8 +495,8 @@
       <div class="sk-circle12 sk-circle"></div>
     </div>
   </div>
-  <div class="modal fade" id="loader-modal" tabindex="-1" role="dialog"
-    aria-labelledby="exampleModalLabel" aria-hidden="true" onclick="hideLoader()">
+  <div class="loader__modal modal fade" id="loader-modal" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content loader__modal-content" id="loader-modal-content">
         <div class="modal-header">
@@ -505,10 +505,11 @@
           </button>
         </div>
         <div class="modal-body">
-          ...
+          <p class="loader__message">Повідомлення успішно відправлено.</p>
+          <p class="loader__message">Дякуємо.</p>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="hideLoader()">Close</button>
+        <div class="modal-footer d-flex justify-content-center">
+          <button type="button" class="loader__button button-full" data-dismiss="modal" onclick="hideLoader()">Закрити</button>
         </div>
       </div>
     </div>

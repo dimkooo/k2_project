@@ -39,8 +39,8 @@
 
 .sk-fading-circle {
   margin: 0 0;
-  width: 80px;
-  height: 80px;
+  width: 8rem;
+  height: 8rem;
   position: relative;
 }
 
@@ -183,4 +183,33 @@
   40% {
     opacity: 1;
   }
+}
+
+.loader__modal .close {
+  font-size: 2.4rem;
+}
+
+.loader__modal .modal-header {
+  border-bottom: none;
+}
+
+.loader__modal .modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loader__modal .modal-footer {
+  border-top: none;
+}
+
+.loader__message {
+  font-size: 1.6rem;
+}
+
+.loader__modal .loader__button {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  padding: .8rem 2.5rem;
 }
