@@ -50,8 +50,9 @@ const onSubmitCustomerMessage = (event) => {
       if (this.readyState == 4 && this.status == 200) {
         console.log('> Відповідь:', this.responseText);
 
-        loaderSpinner.classList.add('loader__spinner--hidden');
-        loaderModal.classList.add('loader__modal--shown');
+        // loaderSpinner.classList.add('loader__spinner--hidden');
+        // loaderModal.classList.add('loader__modal--shown');
+        loader.classList.remove('loader--shown');
 
         firstName.value = '';
         lastName.value = '';
