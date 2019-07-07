@@ -208,7 +208,7 @@
 }
 
 .loader__modal .loader__button {
-  margin-top: 1rem;
+  margin-top: 0;
   margin-bottom: 1rem;
   font-size: 1.8rem;
   padding: .8rem 2.5rem;

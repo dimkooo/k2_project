@@ -44,18 +44,17 @@ hammerHide.get('swipe').set({ direction: Hammer.DIRECTION_LEFT });
 
 const customerMessageForm = document.getElementById('customer-message-form');
 const onSubmitCustomerMessage = (event) => {
+    let prevStatusText = '';
     if (event) { event.preventDefault() }
 
     // AJAX
     const xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-        console.log('> BE:', this.responseText);
-
-        // loaderSpinner.classList.add('loader__spinner--hidden');
-        // loaderModal.classList.add('loader__modal--shown');
         loader.classList.remove('loader--shown');
         loaderModalContent.classList.add('loader__modal-content--shown');
+
+        console.log('> BE:', this.responseText);
 
         firstName.value = '';
         lastName.value = '';
@@ -63,9 +62,18 @@ const onSubmitCustomerMessage = (event) => {
         tel.value = '';
         email.value = '';
         message.value = '';
+      } else if (this.statusText !== prevStatusText && this.readyState != 4 && this.status != 200) {
+        loader.classList.remove('loader--shown');
+        loaderModalContent.classList.add('loader__modal-content--shown');
+
+        console.log('> BE:', this.status, this.statusText);
+
+        document.getElementsByClassName('loader__message')[0].textContent = `${this.status}: ${this.statusText}.`;
+        document.getElementsByClassName('loader__message')[1].textContent = '';
+        prevStatusText = this.statusText;
       }
     };
-    xhttp.open("POST", "/send", true);
+    xhttp.open("POST", "/send1", true);
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.send(JSON.stringify({
       firstName: firstName.value,
