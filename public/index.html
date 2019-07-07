@@ -494,26 +494,25 @@
       <div class="sk-circle11 sk-circle"></div>
       <div class="sk-circle12 sk-circle"></div>
     </div>
-    <div class="loader__modal modal-content" id="loader-modal">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="hideLoader()">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body d-flex justify-content-center">
-        <p class="sender__message">Повідомлення успішно відправлено. <br>Дякуємо.</p>
-        <p class="sender__message"></p>
-      </div>
-      <div class="modal-footer d-flex justify-content-center">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="hideLoader()">OK</button>
+  </div>
+  <div class="modal fade" id="loader-modal" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true" onclick="hideLoader()">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content loader__modal-content" id="loader-modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="hideLoader()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="hideLoader()">Close</button>
+        </div>
       </div>
     </div>
   </div>
-
-  <!-- Button trigger modal -->
-  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button> -->
 
   <!-- SCRIPTS -->
   <!-- JQuery -->

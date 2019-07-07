@@ -14,6 +14,8 @@ const tel = document.getElementById('customer-tel');
 const email = document.getElementById('customer-email');
 const message = document.getElementById('customer-message');
 
+const loaderModalContent = document.getElementById('loader-modal-content');
+
 // встановити ширину sidebar
 var bodyWidth = document.getElementsByTagName('body')[0].offsetWidth;
 bodyWidth = bodyWidth <= 360 ? bodyWidth : 360; 
@@ -48,11 +50,12 @@ const onSubmitCustomerMessage = (event) => {
     const xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-        console.log('> Відповідь:', this.responseText);
+        console.log('> BE:', this.responseText);
 
         // loaderSpinner.classList.add('loader__spinner--hidden');
         // loaderModal.classList.add('loader__modal--shown');
         loader.classList.remove('loader--shown');
+        loaderModalContent.classList.add('loader__modal-content--shown');
 
         firstName.value = '';
         lastName.value = '';
@@ -72,14 +75,16 @@ const onSubmitCustomerMessage = (event) => {
       email: email.value,
       message: message.value
     })); 
-    console.log('> Форма відправлена');
+    console.log('> FE: Форма відправлена');
 
     // активувати backdrop
+    $('#loader-modal').modal('show');
     loader.classList.add('loader--shown');
 }
 customerMessageForm.addEventListener('submit', onSubmitCustomerMessage, false);
 // customerMessageForm.submit = onSubmitCustomerMessage;
 
 const hideLoader = () => {
-  loader.classList.remove('loader--shown');
+  $('#loader-modal').modal('hide');
+  loaderModalContent.classList.remove('loader__modal-content--shown');;
 }
