@@ -9,14 +9,13 @@
   position: sticky;
   top: 0;
   display: none;
+  z-index: 50;
 }
 
 .navigation__list {
-
 }
 
 .navigation__item {
-
 }
 
 .navigation__link {
