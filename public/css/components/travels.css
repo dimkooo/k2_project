@@ -1,3 +1,6 @@
+.travels {
+
+}
 .ban {
 	width: 150px;
 	background-color: grey;
@@ -6,17 +9,28 @@
 	margin-left: 5px;
 	margin-top: 5px;
 }
-img {
+.travels__img {
 	height: 80px;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
 
 }
-a {
+.travels__link {
 	display: block;
 	text-align: center;
 	font-size: 20px;
 	color: red;
 }
-
+.travels__link:visited,
+.travels__link:link {
+	color: var(--color-primary-light-2);
+}
+.travels__link:hover,
+.travels__link:active {
+	color: red;
+}
+.travels .col {
+	display: flex;
+	justify-content: space-between;
+}
