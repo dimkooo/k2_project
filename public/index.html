@@ -394,9 +394,12 @@
               </div>
               <div class="col col-sm-8">
                 <input type="text" class="contact-form__input form-control" name="customerFirstName"
-                  id="customer-first-name" placeholder="&#8277;Ваше ім'я" pattern="[A-Za-zЄ-ЯҐа-їґ]{2,}" />
+                  id="customer-first-name" placeholder="Ваше ім'я" pattern="[A-Za-zЄ-ЯҐа-їґ]{2,}" />
+                <div class="send-message__mandatory send-message__mandatory--shown">
+                  Обов'язкове поле.
+                </div>
                 <div class="invalid-feedback">
-                  Будь ласка, вкажіть своє ім'я. Тільки літери.
+                  Будь ласка, вкажіть своє ім'я. Не менще 2 літер.
                 </div>
               </div>
             </div>
@@ -429,11 +432,14 @@
             <!-- Phone -->
             <div class="row">
               <div class="d-none d-sm-flex col-sm-4 justify-content-end">
-                <label for="customer-tel" class="contact-form__label">Номер телефону<sup>*</sup></label>
+                <label for="customer-tel" class="contact-form__label">Номер телефону</label>
               </div>
               <div class="col col-sm-8">
                 <input type="tel" class="contact-form__input  form-control" name="customerTel" id="customer-tel"
-                  placeholder="&#8277;Ваш телефон" pattern="[0-9]{10}">
+                  placeholder="Ваш телефон" pattern="[0-9]{10}">
+                <div class="send-message__mandatory send-message__mandatory--shown">
+                  Обов'язкове поле.
+                </div>
                 <div class="invalid-feedback">
                   Будь ласка, вкажіть свій телефон. 10 цифр.
                 </div>
@@ -455,15 +461,17 @@
             <!-- Message -->
             <div class="row">
               <div class="d-none d-sm-flex col-sm-4 justify-content-end">
-                <label for="customer-message" class="contact-form__label">Повідомлення<sup>*</sup></label>
+                <label for="customer-message" class="contact-form__label">Повідомлення</label>
               </div>
               <div class="col col-sm-8">
                 <textarea class="contact-form__textareat form-control" name="customerMessage" id="customer-message"
-                  placeholder="&#8277;Ваше повідомлення" required></textarea>
+                  placeholder="Ваше повідомлення"></textarea>
+                <div class="send-message__mandatory send-message__mandatory--shown">
+                  Обов'язкове поле.
+                </div>
                 <div class="invalid-feedback">
                   Будь ласка, вкажіть своє повідомлення.
                 </div>
-                <p class="contact-form__mark-definition">&#8277; &mdash; Обов'язкове поле для заповнення</p>
               </div>
             </div>
             <!-- Submit -->
@@ -509,7 +517,8 @@
           <p class="loader__message">Дякуємо.</p>
         </div>
         <div class="modal-footer d-flex justify-content-center">
-          <button type="button" class="loader__button button-full" data-dismiss="modal" onclick="hideLoader()">Закрити</button>
+          <button type="button" class="loader__button button-full" data-dismiss="modal"
+            onclick="hideLoader()">Закрити</button>
         </div>
       </div>
     </div>

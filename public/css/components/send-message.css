@@ -32,7 +32,7 @@
 }
 
 .contact-form__input::placeholder {
-  content: '*';
+  content: "*";
 }
 
 .contact-form__input::placeholder {
@@ -61,6 +61,17 @@ textarea {
 
 .contact-form__mark-definition {
   padding-top: 1.25rem;
+}
+
+.send-message__mandatory {
+  display: none;
+  font-size: 80%;
+  width: 100%;
+  margin-top: .25rem;
+}
+
+.send-message__mandatory--shown {
+  display: block;
 }
 
 /********************* 

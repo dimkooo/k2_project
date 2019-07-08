@@ -41,12 +41,8 @@ const onSubmitCustomerMessage = (event) => {
   // зупинити перевантаження сторінки
   if (event) { event.preventDefault() }
 
-  // валідувати форму на стороні клієнта
-
-  // відравити повідомлення
+  // відравити повідомлення за допомогою AJAX
   let prevStatusText = '';
-
-  // AJAX
   const xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
@@ -72,7 +68,7 @@ const onSubmitCustomerMessage = (event) => {
       prevStatusText = this.statusText;
     }
   };
-  xhttp.open("POST", "/send", true);
+  xhttp.open("POST", "/send1", true);
   xhttp.setRequestHeader("Content-type", "application/json");
   xhttp.send(JSON.stringify({
     firstName: firstName.value,
