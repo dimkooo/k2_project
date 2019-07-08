@@ -1,11 +1,31 @@
 ///////////////////////
 // SIDEBAR
 
-const backdrop = document.getElementById('backdrop');
-const panel = document.getElementById('panel');
-const loader = document.getElementById('loader');
-const loaderSpinner = document.getElementById('loader-spinner');
-const loaderModal = document.getElementById('loader-modal');
+// встановити ширину sidebar
+let bodyWidth = document.getElementsByTagName('body')[0].offsetWidth;
+bodyWidth = bodyWidth <= 360 ? bodyWidth : 360;
+document.getElementById('panel').style.width = bodyWidth + "px";
+document.getElementById('panel').setAttribute('style', `width:${bodyWidth}px`);
+
+// показати sidebar
+const onShowSidebar = () => {
+  document.getElementById('backdrop').classList.add('backdrop--shown');
+  document.getElementById('panel').classList.add('panel--shown');
+}
+
+// сховати sidebar
+const onHideSidebar = () => {
+  document.getElementById('backdrop').classList.remove('backdrop--shown');
+  document.getElementById('panel').classList.remove('panel--shown');
+}
+
+// сховати sidebar за допомогою swipe-жесту
+const hammerHide = new Hammer(panel);
+hammerHide.on('swipe', onHideSidebar);
+hammerHide.get('swipe').set({ direction: Hammer.DIRECTION_LEFT });
+
+///////////////////////////
+// CUSTOMER MESSAGE
 
 const firstName = document.getElementById('customer-first-name');
 const lastName = document.getElementById('customer-last-name');
@@ -15,83 +35,62 @@ const email = document.getElementById('customer-email');
 const message = document.getElementById('customer-message');
 
 const loaderModalContent = document.getElementById('loader-modal-content');
-
-// встановити ширину sidebar
-var bodyWidth = document.getElementsByTagName('body')[0].offsetWidth;
-bodyWidth = bodyWidth <= 360 ? bodyWidth : 360; 
-panel.style.width = bodyWidth + "px";
-panel.setAttribute('style',`width:${bodyWidth}px`);
-
-// показати sidebar
-const onShowSidebar = () => {
-  backdrop.classList.add('backdrop--shown');
-  panel.classList.add('panel--shown');
-}
-
-// сховати sidebar
-const onHideSidebar = () => {
-  backdrop.classList.remove('backdrop--shown');
-  panel.classList.remove('panel--shown');
-}
-
-// сховати sidebar за допомогою swipe-жесту
-var hammerHide = new Hammer(panel);
-hammerHide.on('swipe', onHideSidebar);
-hammerHide.get('swipe').set({ direction: Hammer.DIRECTION_LEFT });
-
-///////////////////////////
-// ВІДПРАВИТИ ПОВІДОМЛЕННЯ
-
 const customerMessageForm = document.getElementById('customer-message-form');
+
 const onSubmitCustomerMessage = (event) => {
-    let prevStatusText = '';
-    if (event) { event.preventDefault() }
+  // зупинити перевантаження сторінки
+  if (event) { event.preventDefault() }
 
-    // AJAX
-    const xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        loader.classList.remove('loader--shown');
-        loaderModalContent.classList.add('loader__modal-content--shown');
+  // валідувати форму на стороні клієнта
 
-        console.log('> BE:', this.responseText);
+  // відравити повідомлення
+  let prevStatusText = '';
 
-        firstName.value = '';
-        lastName.value = '';
-        middleName.value = '';
-        tel.value = '';
-        email.value = '';
-        message.value = '';
-      } else if (this.statusText !== prevStatusText && this.readyState != 4 && this.status != 200) {
-        loader.classList.remove('loader--shown');
-        loaderModalContent.classList.add('loader__modal-content--shown');
+  // AJAX
+  const xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById('loader').classList.remove('loader--shown');
+      loaderModalContent.classList.add('loader__modal-content--shown');
 
-        console.log('> BE:', this.status, this.statusText);
+      console.log('> BE:', this.responseText);
 
-        document.getElementsByClassName('loader__message')[0].textContent = `${this.status}: ${this.statusText}.`;
-        document.getElementsByClassName('loader__message')[1].textContent = '';
-        prevStatusText = this.statusText;
-      }
-    };
-    xhttp.open("POST", "/send1", true);
-    xhttp.setRequestHeader("Content-type", "application/json");
-    xhttp.send(JSON.stringify({
-      firstName: firstName.value,
-      lastName: lastName.value,
-      middleName: middleName.value,
-      tel: tel.value,
-      email: email.value,
-      message: message.value
-    })); 
-    console.log('> FE: Форма відправлена');
+      firstName.value = '';
+      lastName.value = '';
+      middleName.value = '';
+      tel.value = '';
+      email.value = '';
+      message.value = '';
+    } else if (this.statusText !== prevStatusText && this.readyState != 4 && this.status != 200) {
+      document.getElementById('loader').classList.remove('loader--shown');
+      loaderModalContent.classList.add('loader__modal-content--shown');
 
-    // активувати backdrop
-    $('#loader-modal').modal('show');
-    loader.classList.add('loader--shown');
+      console.log('> BE:', this.status, this.statusText);
+
+      document.getElementsByClassName('loader__message')[0].textContent = `${this.status}: ${this.statusText}.`;
+      document.getElementsByClassName('loader__message')[1].textContent = '';
+      prevStatusText = this.statusText;
+    }
+  };
+  xhttp.open("POST", "/send", true);
+  xhttp.setRequestHeader("Content-type", "application/json");
+  xhttp.send(JSON.stringify({
+    firstName: firstName.value,
+    lastName: lastName.value,
+    middleName: middleName.value,
+    tel: tel.value,
+    email: email.value,
+    message: message.value
+  }));
+  console.log('> FE: Форма відправлена');
+
+  // активувати backdrop
+  $('#loader-modal').modal('show');
+  document.getElementById('loader').classList.add('loader--shown');
 }
 customerMessageForm.addEventListener('submit', onSubmitCustomerMessage, false);
-// customerMessageForm.submit = onSubmitCustomerMessage;
 
+// сховати завантажувач
 const hideLoader = () => {
   $('#loader-modal').modal('hide');
   loaderModalContent.classList.remove('loader__modal-content--shown');;
