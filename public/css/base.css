@@ -16,3 +16,13 @@ body {
   background-color: var(--color-grey-light-1);
   position: relative;
 }
+
+.is-invalid {
+  border-color: var(--color-red-1) !important;
+}
+
+.invalid-feedback {
+  color: var(--color-red-1) !important;
+  margin-top: 0;
+  margin-bottom: .25rem;
+}

@@ -80,6 +80,27 @@ const onSubmitCustomerMessage = (event) => {
   validation = !validation ? 'OK' : validation;
   console.log('> Validation:', validation);
 
+  validation = Object.keys(validation);
+  validation.forEach((key) => {
+    if (key === 'firstName') {
+      firstName.classList.add('is-invalid');
+      document.getElementById('customer-first-name-mandatory').classList.remove('send-message__mandatory--shown');
+    }
+    if (key === 'lastName') {lastName.classList.add('is-invalid')}
+    if (key === 'middleName') {middleName.classList.add('is-invalid')}
+    if (key === 'tel') {
+      tel.classList.add('is-invalid');
+      document.getElementById('customer-tel-mandatory').classList.remove('send-message__mandatory--shown');
+    }
+    if (key === 'email') {email.classList.add('is-invalid')}
+    if (key === 'message') {
+      message.classList.add('is-invalid');
+      document.getElementById('customer-message-mandatory').classList.remove('send-message__mandatory--shown');
+    }
+  });
+
+  if (validation.length !== 0) { return }
+
   // відравити повідомлення за допомогою AJAX
   const xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
@@ -142,4 +163,35 @@ const hideLoader = () => {
   loaderModalContent.classList.remove('loader__modal-content--shown');;
 }
 
+// сховати позначення поля First Name як некоректне
+firstName.addEventListener('input', () => {
+  firstName.classList.remove('is-invalid');
+  document.getElementById('customer-first-name-mandatory').classList.add('send-message__mandatory--shown');
+});
 
+// сховати позначення поля Last Name як некоректне
+lastName.addEventListener('input', () => {
+  lastName.classList.remove('is-invalid');
+});
+
+// сховати позначення поля Middle Name як некоректне
+middleName.addEventListener('input', () => {
+  middleName.classList.remove('is-invalid');
+});
+
+// сховати позначення поля Tel як некоректне
+tel.addEventListener('input', () => {
+  tel.classList.remove('is-invalid');
+  document.getElementById('customer-tel-mandatory').classList.add('send-message__mandatory--shown');
+});
+
+// сховати позначення поля Email як некоректне
+email.addEventListener('input', () => {
+  email.classList.remove('is-invalid');
+});
+
+// сховати позначення поля Message як некоректне
+message.addEventListener('input', () => {
+  message.classList.remove('is-invalid');
+  document.getElementById('customer-message-mandatory').classList.add('send-message__mandatory--shown');
+});
