@@ -41,8 +41,46 @@ const onSubmitCustomerMessage = (event) => {
   // зупинити перевантаження сторінки
   if (event) { event.preventDefault() }
 
+  // вадідувати поля
+  const schema = {
+    firstName: {
+      type: 'string',
+      length: {
+        minimum: 2,
+        maximum: 12
+      }
+    },
+    lastName: {
+      format: { pattern: /^$|[A-Za-zЄ-ЯҐа-їґ]{2,12}/ }
+    },
+    middleName: {
+      format: { pattern: /^$|[A-Za-zЄ-ЯҐа-їґ]{2,12}/ }
+    },
+    tel: {
+      numericality: { onlyInteger: true },
+      length: { is: 10 }
+    },
+    email: {
+      format: { pattern: /^$|^.*@.*\..*$/ }
+    },
+    message: {
+      type: 'string',
+      length: { minimum: 1 }
+    }
+  };
+
+  let validation = validate({
+    firstName: firstName.value,
+    lastName: lastName.value,
+    middleName: middleName.value,
+    tel: tel.value,
+    email: email.value,
+    message: message.value
+  }, schema);
+  validation = !validation ? 'OK' : validation;
+  console.log('> Validation:', validation);
+
   // відравити повідомлення за допомогою AJAX
-  let prevStatusText = '';
   const xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) { // повідомлення відправлено успішно
@@ -78,10 +116,9 @@ const onSubmitCustomerMessage = (event) => {
 
       document.getElementsByClassName('loader__message')[0].textContent = `${this.status}`;
       document.getElementsByClassName('loader__message')[1].textContent = `${this.statusText}.`;
-      prevStatusText = this.statusText;
     }
   };
-  xhttp.open("POST", "/send", true);
+  xhttp.open("POST", "/send1", true);
   xhttp.setRequestHeader("Content-type", "application/json");
   xhttp.send(JSON.stringify({
     firstName: firstName.value,
