@@ -46,10 +46,13 @@ const onSubmitCustomerMessage = (event) => {
   const xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
+      document.getElementsByClassName('loader__message')[0].textContent = 'Повідомлення відправлено успішно.';
+      document.getElementsByClassName('loader__message')[1].textContent = 'Дякуємо.';
       document.getElementById('loader').classList.remove('loader--shown');
       loaderModalContent.classList.add('loader__modal-content--shown');
 
-      console.log('> BE:', this.responseText);
+      console.log('> Response:', this.status);
+      console.log('> ', this.responseText);
 
       firstName.value = '';
       lastName.value = '';
@@ -57,18 +60,28 @@ const onSubmitCustomerMessage = (event) => {
       tel.value = '';
       email.value = '';
       message.value = '';
-    } else if (this.statusText !== prevStatusText && this.readyState != 4 && this.status != 200) {
+    } else if (this.readyState == 4 && this.status == 400) {
+      document.getElementsByClassName('loader__message')[0].textContent = 'Помилка відправлених даних.';
+      document.getElementsByClassName('loader__message')[1].textContent = 'Будь ласка, виправте помилку.';
       document.getElementById('loader').classList.remove('loader--shown');
       loaderModalContent.classList.add('loader__modal-content--shown');
 
-      console.log('> BE:', this.status, this.statusText);
+      console.log('> Response:', this.status);
+      console.log('> ', this.responseText);
+    } else if (this.readyState == 4) {
+      document.getElementById('loader').classList.remove('loader--shown');
+      loaderModalContent.classList.add('loader__modal-content--shown');
 
-      document.getElementsByClassName('loader__message')[0].textContent = `${this.status}: ${this.statusText}.`;
-      document.getElementsByClassName('loader__message')[1].textContent = '';
+      // console.log('> Response:', this.status, this.statusText);
+      console.log('> Response:', this.status);
+      console.log('> ', this.responseText);
+
+      document.getElementsByClassName('loader__message')[0].textContent = `${this.status}`;
+      document.getElementsByClassName('loader__message')[1].textContent = `${this.statusText}.`;
       prevStatusText = this.statusText;
     }
   };
-  xhttp.open("POST", "/send1", true);
+  xhttp.open("POST", "/send", true);
   xhttp.setRequestHeader("Content-type", "application/json");
   xhttp.send(JSON.stringify({
     firstName: firstName.value,
@@ -78,7 +91,7 @@ const onSubmitCustomerMessage = (event) => {
     email: email.value,
     message: message.value
   }));
-  console.log('> FE: Форма відправлена');
+  console.log('> Request: Done');
 
   // активувати backdrop
   $('#loader-modal').modal('show');
@@ -91,3 +104,5 @@ const hideLoader = () => {
   $('#loader-modal').modal('hide');
   loaderModalContent.classList.remove('loader__modal-content--shown');;
 }
+
+
