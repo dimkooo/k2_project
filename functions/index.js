@@ -2,6 +2,7 @@ const functions = require('firebase-functions');
 const express = require('express');;
 const path = require('path');
 const nodemailer = require('nodemailer');
+const Joi = require('joi');
 
 const app = express();
 
@@ -18,11 +19,21 @@ app.post('/test', (req, res) => {
 
 // підготувати та відправити повідомлення користувача
 app.post('/send', (req, res) => {
-  const message = 'Повідомлення було успішно відправлено! Дякуємо.'
-  // const lastName = req.body.customerLastName ? `<li>Прізвище: ${req.body.customerLastName}</li>` : null;
-  // const middleName = req.body.customerMiddleName ? `<li>Ім'я по батькові: ${req.body.customerMiddleName}</li>` : null;
-  console.log('body = ', req.body);
-  const output = `
+  // валідувати отримане повідомлення
+  const schema = Joi.object().keys({
+    firstName: Joi.string().trim().alphanum().min(2).max(12).required(),
+    lastName: Joi.string().trim().alphanum().min(2).max(12).optional().allow(''),
+    middleName: Joi.string().trim().alphanum().min(2).max(12).optional().allow(''),
+    tel: Joi.number().integer(10).required(),
+    email: Joi.string().trim().email().optional().allow(''),
+    message: Joi.string().trim().min(1).required()
+  });
+
+  const validationResult = Joi.validate(req.body, schema);
+  console.log('> validationResult', validationResult);
+
+  if (!validationResult.error) {
+    const output = `
     <div>
       <h3>Ви отримали нове повідомлення:</h3>
       <br />
@@ -39,31 +50,34 @@ app.post('/send', (req, res) => {
     </div>
   `;
 
-  // створити транспортер
-  let transporter = nodemailer.createTransport({
-    service: 'gmail',
-    port: 587,
-    secure: false, 
-    auth: {
-      user: 'victor.s.snow@gmail.com', 
-      pass: 'W$m64rNoOM#Z'  
-    }
-  });
+    // створити транспортер
+    let transporter = nodemailer.createTransport({
+      service: 'gmail',
+      port: 587,
+      secure: false,
+      auth: {
+        user: 'victor.s.snow@gmail.com',
+        pass: 'W$m64rNoOM#Z'
+      }
+    });
 
-  // зібрати повідомлення
-  let mailOptions = {
-    from: '"Туроператор KEY" <victor.s.snow@gmail.com>', 
-    to: 'vik8174@gmail.com', 
-    subject: 'Нове Повідомлення', 
-    // text: 'Hello world?', 
-    html: output 
-  };
+    // зібрати повідомлення
+    let mailOptions = {
+      from: '"Туроператор KEY" <victor.s.snow@gmail.com>',
+      to: 'vik8174@gmail.com',
+      subject: 'Нове Повідомлення',
+      // text: 'Hello world?', 
+      html: output
+    };
 
-  // відправити зібране повідомлення
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) { return console.log(error) }
-    res.send('Лист відправлено успішно');
-  });
+    // відправити зібране повідомлення
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) { return console.log(error) }
+      res.status(200).send(validationResult);
+    });
+  } else {
+    res.status(400).send(validationResult);
+  }
 });
 
 // app.listen(3000, () => console.log('Server started...'));
