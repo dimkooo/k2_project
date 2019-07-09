@@ -80,26 +80,35 @@ const onSubmitCustomerMessage = (event) => {
   validation = !validation ? 'OK' : validation;
   console.log('> Validation:', validation);
 
-  validation = Object.keys(validation);
-  validation.forEach((key) => {
-    if (key === 'firstName') {
-      firstName.classList.add('is-invalid');
-      document.getElementById('customer-first-name-mandatory').classList.remove('send-message__mandatory--shown');
-    }
-    if (key === 'lastName') {lastName.classList.add('is-invalid')}
-    if (key === 'middleName') {middleName.classList.add('is-invalid')}
-    if (key === 'tel') {
-      tel.classList.add('is-invalid');
-      document.getElementById('customer-tel-mandatory').classList.remove('send-message__mandatory--shown');
-    }
-    if (key === 'email') {email.classList.add('is-invalid')}
-    if (key === 'message') {
-      message.classList.add('is-invalid');
-      document.getElementById('customer-message-mandatory').classList.remove('send-message__mandatory--shown');
-    }
-  });
-
-  if (validation.length !== 0) { return }
+  if (validation !== 'OK') {
+    validation = Object.keys(validation);
+    validation.forEach((key) => {
+      switch (key) {
+        case 'firstName':
+          firstName.classList.add('is-invalid');
+          document.getElementById('customer-first-name-mandatory').classList.remove('send-message__mandatory--shown');
+          break;
+        case 'lastName':
+          lastName.classList.add('is-invalid');
+          break;
+        case 'middleName':
+          middleName.classList.add('is-invalid');
+          break;
+        case 'tel':
+          tel.classList.add('is-invalid');
+          document.getElementById('customer-tel-mandatory').classList.remove('send-message__mandatory--shown');
+          break;
+        case 'email':
+          email.classList.add('is-invalid');
+          break;
+        case 'message':
+          message.classList.add('is-invalid');
+          document.getElementById('customer-message-mandatory').classList.remove('send-message__mandatory--shown');
+          break;
+      }
+    });
+    return;
+  }
 
   // відравити повідомлення за допомогою AJAX
   const xhttp = new XMLHttpRequest();
@@ -139,7 +148,7 @@ const onSubmitCustomerMessage = (event) => {
       document.getElementsByClassName('loader__message')[1].textContent = `${this.statusText}.`;
     }
   };
-  xhttp.open("POST", "/send1", true);
+  xhttp.open("POST", "/send", true);
   xhttp.setRequestHeader("Content-type", "application/json");
   xhttp.send(JSON.stringify({
     firstName: firstName.value,

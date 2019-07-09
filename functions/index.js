@@ -21,9 +21,9 @@ app.post('/test', (req, res) => {
 app.post('/send', (req, res) => {
   // валідувати отримане повідомлення
   const schema = Joi.object().keys({
-    firstName: Joi.string().trim().min(2).max(12).required(),
-    lastName: Joi.string().trim().min(2).max(12).optional().allow(''),
-    middleName: Joi.string().trim().min(2).max(12).optional().allow(''),
+    firstName: Joi.string().trim().min(2).required(),
+    lastName: Joi.string().trim().min(2).optional().allow(''),
+    middleName: Joi.string().trim().min(2).optional().allow(''),
     tel: Joi.number().integer(10).required(),
     email: Joi.string().trim().email().optional().allow(''),
     message: Joi.string().trim().min(1).required()
