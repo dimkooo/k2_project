@@ -45,7 +45,7 @@ const onSubmitCustomerMessage = (event) => {
   let prevStatusText = '';
   const xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
+    if (this.readyState == 4 && this.status == 200) { // повідомлення відправлено успішно
       document.getElementsByClassName('loader__message')[0].textContent = 'Повідомлення відправлено успішно.';
       document.getElementsByClassName('loader__message')[1].textContent = 'Дякуємо.';
       document.getElementById('loader').classList.remove('loader--shown');
@@ -60,7 +60,7 @@ const onSubmitCustomerMessage = (event) => {
       tel.value = '';
       email.value = '';
       message.value = '';
-    } else if (this.readyState == 4 && this.status == 400) {
+    } else if (this.readyState == 4 && this.status == 400) { // виявлено помилку у даних, що відправлені клієнтом
       document.getElementsByClassName('loader__message')[0].textContent = 'Помилка відправлених даних.';
       document.getElementsByClassName('loader__message')[1].textContent = 'Будь ласка, виправте помилку.';
       document.getElementById('loader').classList.remove('loader--shown');
@@ -68,7 +68,7 @@ const onSubmitCustomerMessage = (event) => {
 
       console.log('> Response:', this.status);
       console.log('> ', this.responseText);
-    } else if (this.readyState == 4) {
+    } else if (this.readyState == 4) { // інші помилки
       document.getElementById('loader').classList.remove('loader--shown');
       loaderModalContent.classList.add('loader__modal-content--shown');
 

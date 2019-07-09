@@ -32,20 +32,23 @@ app.post('/send', (req, res) => {
   const validationResult = Joi.validate(req.body, schema);
   console.log('> validationResult', validationResult);
 
+  // підготувати необов'язкові поля
+  const lastName = req.body.lastName ? `<li>Прізвище: ${req.body.lastName}</li>` : '';
+  const middleName = req.body.middleName ? `<li>Ім'я по батькові: ${req.body.middleName}</li>` : '';
+  const email = req.body.email ? `<li>Email: ${req.body.email}</li>` : '';
+
   if (!validationResult.error) {
     const output = `
     <div>
       <h3>Ви отримали нове повідомлення:</h3>
-      <br />
       <p>${req.body.message}</p>
-      <br />
       <h3>Від:</h3>
       <ul>  
         <li>Ім'я: ${req.body.firstName}</li>
-        <li>Прізвище: ${req.body.lastName}</li>
-        <li>Ім'я по батькові: ${req.body.middleName}</li>
+        ${lastName}
+        ${middleName}
         <li>Телефон: ${req.body.tel}</li>
-        <li>Email: ${req.body.email}</li>
+        ${email}
       </ul>
     </div>
   `;
