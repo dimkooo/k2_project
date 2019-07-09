@@ -385,7 +385,7 @@
         </div>
       </div>
       <div class="row">
-        <form id="customer-message-form" class="contact-form">
+        <form id="customer-message-form" class="contact-form" novalidate>
           <div class="container">
             <!-- First Name -->
             <div class="row">
@@ -452,7 +452,7 @@
               </div>
               <div class="col col-sm-8">
                 <input type="email" class="contact-form__input form-control" name="customer-email" id="customer-email"
-                  placeholder="Ваш email">
+                  placeholder="Ваш email" spellcheck="false" pattern=".*" />
                 <div class="invalid-feedback">
                   Будь ласка, вкажіть коректний email.
                 </div>
