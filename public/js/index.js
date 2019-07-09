@@ -1,3 +1,22 @@
+// Polifill
+if (!String.prototype.splice) {
+  /**
+   * {JSDoc}
+   *
+   * The splice() method changes the content of a string by removing a range of
+   * characters and/or adding new characters.
+   *
+   * @this {String}
+   * @param {number} start Index at which to start changing the string.
+   * @param {number} delCount An integer indicating the number of old chars to remove.
+   * @param {string} newSubStr The String that is spliced in.
+   * @return {string} A new string with the spliced substring.
+   */
+  String.prototype.splice = function(start, delCount, newSubStr) {
+      return this.slice(0, start) + newSubStr + this.slice(start + Math.abs(delCount));
+  };
+}
+
 ///////////////////////
 // SIDEBAR
 
@@ -36,6 +55,8 @@ const message = document.getElementById('customer-message');
 
 const loaderModalContent = document.getElementById('loader-modal-content');
 const customerMessageForm = document.getElementById('customer-message-form');
+
+let telNumber = 0;
 
 const onSubmitCustomerMessage = (event) => {
   // зупинити перевантаження сторінки
@@ -192,6 +213,7 @@ middleName.addEventListener('input', () => {
 tel.addEventListener('input', () => {
   tel.classList.remove('is-invalid');
   document.getElementById('customer-tel-mandatory').classList.add('send-message__mandatory--shown');
+  tel.value = styleTel(tel.value);
 });
 
 // сховати позначення поля Email як некоректне
@@ -204,3 +226,33 @@ message.addEventListener('input', () => {
   message.classList.remove('is-invalid');
   document.getElementById('customer-message-mandatory').classList.add('send-message__mandatory--shown');
 });
+
+// стилізувати номер телефону
+const styleTel = (telRecieved) => {
+  telRecieved = telRecieved.toString();
+  let telPurified = '';
+  let telModified = '';
+
+  // позбутися символів стилізації 
+  for (let i = 0; i < telRecieved.length; i++) {
+    if (Number.isInteger(+telRecieved[i]) && telRecieved[i] !== ' ' && i < 15) {
+      telPurified += telRecieved[i];
+    }
+  }
+
+  // зберегти номер глобально
+  telNumber = +telPurified;
+  telModified = telPurified;
+
+  console.log('telRecieved ', telRecieved);
+  console.log('telPurified ', telPurified);
+
+  // стилізувати номер
+  if (telPurified.length > 0) { telModified = telModified.splice(0, 0, '(') }
+  if (telPurified.length > 3) { telModified = telModified.splice(4, 0, ') ') }
+  if (telPurified.length > 5) { telModified = telModified.splice(8, 0, '-') }
+  if (telPurified.length > 7) { telModified = telModified.splice(11, 0, '-') }
+
+  return telModified;
+}
+
