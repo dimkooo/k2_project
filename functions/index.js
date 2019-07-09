@@ -4,8 +4,14 @@ const path = require('path');
 const nodemailer = require('nodemailer');
 const Joi = require('joi');
 
-const app = express();
+// Polifill
+if (!String.prototype.splice) {
+  String.prototype.splice = function(start, delCount, newSubStr) {
+      return this.slice(0, start) + newSubStr + this.slice(start + Math.abs(delCount));
+  };
+}
 
+const app = express();
 // налаштувати статичний каталог
 // app.use('public', express.static(path.join(__dirname, 'public')));
 // підключти доступ до об'єкту req.body методу POST
@@ -30,24 +36,30 @@ app.post('/send', (req, res) => {
   });
 
   const validationResult = Joi.validate(req.body, schema);
-  console.log('> validationResult', validationResult);
 
-  // підготувати необов'язкові поля
-  const lastName = req.body.lastName ? `<li>Прізвище: ${req.body.lastName}</li>` : '';
-  const middleName = req.body.middleName ? `<li>Ім'я по батькові: ${req.body.middleName}</li>` : '';
+  // стилізувати номер
+  let telNumber = req.body.tel;
+  if (req.body.tel.length > 0) { telNumber = telNumber.splice(0, 0, '(') }
+  if (req.body.tel.length > 3) { telNumber = telNumber.splice(4, 0, ') ') }
+  if (req.body.tel.length > 5) { telNumber = telNumber.splice(8, 0, '-') }
+  if (req.body.tel.length > 7) { telNumber = telNumber.splice(11, 0, '-') }
+    
+  // підготувати поля
+  const lastName = req.body.lastName ? `<li>Прізвище: ${capitalizeFirstLetter(req.body.lastName)}</li>` : '';
+  const middleName = req.body.middleName ? `<li>Ім'я по батькові: ${capitalizeFirstLetter(req.body.middleName)}</li>` : '';
   const email = req.body.email ? `<li>Email: ${req.body.email}</li>` : '';
 
   if (!validationResult.error) {
     const output = `
     <div>
       <h3>Ви отримали нове повідомлення:</h3>
-      <p>${req.body.message}</p>
+      <p>${capitalizeFirstLetter(req.body.message)}</p>
       <h3>Від:</h3>
       <ul>  
-        <li>Ім'я: ${req.body.firstName}</li>
+        <li>Ім'я: ${capitalizeFirstLetter(req.body.firstName)}</li>
         ${lastName}
         ${middleName}
-        <li>Телефон: ${req.body.tel}</li>
+        <li>Телефон: ${telNumber}</li>
         ${email}
       </ul>
     </div>
@@ -86,3 +98,8 @@ app.post('/send', (req, res) => {
 // app.listen(3000, () => console.log('Server started...'));
 
 exports.app = functions.https.onRequest(app); 
+
+// зробити першу літеру рядка великою
+const capitalizeFirstLetter = (string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}

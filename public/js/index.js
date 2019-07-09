@@ -1,17 +1,5 @@
 // Polifill
 if (!String.prototype.splice) {
-  /**
-   * {JSDoc}
-   *
-   * The splice() method changes the content of a string by removing a range of
-   * characters and/or adding new characters.
-   *
-   * @this {String}
-   * @param {number} start Index at which to start changing the string.
-   * @param {number} delCount An integer indicating the number of old chars to remove.
-   * @param {string} newSubStr The String that is spliced in.
-   * @return {string} A new string with the spliced substring.
-   */
   String.prototype.splice = function(start, delCount, newSubStr) {
       return this.slice(0, start) + newSubStr + this.slice(start + Math.abs(delCount));
   };
@@ -56,8 +44,6 @@ const message = document.getElementById('customer-message');
 const loaderModalContent = document.getElementById('loader-modal-content');
 const customerMessageForm = document.getElementById('customer-message-form');
 
-let telNumber = 0;
-
 const onSubmitCustomerMessage = (event) => {
   // зупинити перевантаження сторінки
   if (event) { event.preventDefault() }
@@ -90,11 +76,18 @@ const onSubmitCustomerMessage = (event) => {
     }
   };
 
+  let telNumber = '';
+  for (let i = 0; i < tel.value.length; i++) {
+    if (Number.isInteger(+tel.value[i]) && tel.value[i] !== ' ' && i < 15) {
+      telNumber += tel.value[i];
+    }
+  }
+
   let validation = validate({
     firstName: firstName.value,
     lastName: lastName.value,
     middleName: middleName.value,
-    tel: tel.value,
+    tel: telNumber,
     email: email.value,
     message: message.value
   }, schema);
@@ -161,7 +154,6 @@ const onSubmitCustomerMessage = (event) => {
       document.getElementById('loader').classList.remove('loader--shown');
       loaderModalContent.classList.add('loader__modal-content--shown');
 
-      // console.log('> Response:', this.status, this.statusText);
       console.log('> Response:', this.status);
       console.log('> ', this.responseText);
 
@@ -175,7 +167,7 @@ const onSubmitCustomerMessage = (event) => {
     firstName: firstName.value,
     lastName: lastName.value,
     middleName: middleName.value,
-    tel: tel.value,
+    tel: telNumber,
     email: email.value,
     message: message.value
   }));
@@ -239,13 +231,7 @@ const styleTel = (telRecieved) => {
       telPurified += telRecieved[i];
     }
   }
-
-  // зберегти номер глобально
-  telNumber = +telPurified;
   telModified = telPurified;
-
-  console.log('telRecieved ', telRecieved);
-  console.log('telPurified ', telPurified);
 
   // стилізувати номер
   if (telPurified.length > 0) { telModified = telModified.splice(0, 0, '(') }
