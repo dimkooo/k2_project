@@ -1,4 +1,5 @@
-// Polifill
+///////////////////////
+// POLIFILL
 if (!String.prototype.splice) {
   String.prototype.splice = function(start, delCount, newSubStr) {
       return this.slice(0, start) + newSubStr + this.slice(start + Math.abs(delCount));
@@ -26,10 +27,15 @@ const onHideSidebar = () => {
   document.getElementById('panel').classList.remove('panel--shown');
 }
 
-// сховати sidebar за допомогою swipe-жесту
-const hammerHide = new Hammer(panel);
-hammerHide.on('swipe', onHideSidebar);
-hammerHide.get('swipe').set({ direction: Hammer.DIRECTION_LEFT });
+// показати sidebar за допомогою swipe-жесту
+const mcBody = new Hammer.Manager(document.getElementsByTagName('body')[0]);
+mcBody.add( new Hammer.Swipe({ direction: Hammer.DIRECTION_RIGHT}) );
+mcBody.on("swipe", onShowSidebar);
+
+// сховати sidebar за допомогою swipe-жесту;
+const mcPanel = new Hammer.Manager(document.getElementById('panel'));
+mcPanel.add( new Hammer.Swipe({ direction: Hammer.DIRECTION_LEFT}) );
+mcPanel.on("swipe", onHideSidebar);
 
 ///////////////////////////
 // CUSTOMER MESSAGE
