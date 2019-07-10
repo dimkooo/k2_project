@@ -1,8 +1,8 @@
 ///////////////////////
 // POLIFILL
 if (!String.prototype.splice) {
-  String.prototype.splice = function(start, delCount, newSubStr) {
-      return this.slice(0, start) + newSubStr + this.slice(start + Math.abs(delCount));
+  String.prototype.splice = function (start, delCount, newSubStr) {
+    return this.slice(0, start) + newSubStr + this.slice(start + Math.abs(delCount));
   };
 }
 
@@ -17,8 +17,10 @@ document.getElementById('panel').setAttribute('style', `width:${bodyWidth}px`);
 
 // показати sidebar
 const onShowSidebar = () => {
-  document.getElementById('backdrop').classList.add('backdrop--shown');
-  document.getElementById('panel').classList.add('panel--shown');
+  if (document.getElementsByTagName('body')[0].offsetWidth < 992) {
+    document.getElementById('backdrop').classList.add('backdrop--shown');
+    document.getElementById('panel').classList.add('panel--shown');
+  }
 }
 
 // сховати sidebar
@@ -29,12 +31,12 @@ const onHideSidebar = () => {
 
 // показати sidebar за допомогою swipe-жесту
 const mcBody = new Hammer.Manager(document.getElementsByTagName('body')[0]);
-mcBody.add( new Hammer.Swipe({ direction: Hammer.DIRECTION_RIGHT}) );
+mcBody.add(new Hammer.Swipe({ direction: Hammer.DIRECTION_RIGHT }));
 mcBody.on("swipe", onShowSidebar);
 
 // сховати sidebar за допомогою swipe-жесту;
 const mcPanel = new Hammer.Manager(document.getElementById('panel'));
-mcPanel.add( new Hammer.Swipe({ direction: Hammer.DIRECTION_LEFT}) );
+mcPanel.add(new Hammer.Swipe({ direction: Hammer.DIRECTION_LEFT }));
 mcPanel.on("swipe", onHideSidebar);
 
 ///////////////////////////
