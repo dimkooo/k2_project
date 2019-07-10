@@ -1,85 +1,105 @@
 const functions = require('firebase-functions');
-const express = require('express');
-const bodyParser = require('body-parser');
-const exphbs = require('express-handlebars');
+const express = require('express');;
 const path = require('path');
 const nodemailer = require('nodemailer');
+const Joi = require('joi');
+
+// Polifill
+if (!String.prototype.splice) {
+  String.prototype.splice = function(start, delCount, newSubStr) {
+      return this.slice(0, start) + newSubStr + this.slice(start + Math.abs(delCount));
+  };
+}
 
 const app = express();
+// налаштувати статичний каталог
+// app.use('public', express.static(path.join(__dirname, 'public')));
+// підключти доступ до об'єкту req.body методу POST
+app.use(express.json());
 
-// View engine setup
-app.engine('handlebars', exphbs());
-app.set('view engine', 'handlebars');
-
-// Static folder
-app.use('public', express.static(path.join(__dirname, 'public')));
-
-// Body Parser Middleware
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
-app.get('/', (req, res) => {
-  res.render('contact', { layout: false });
+// тестування
+app.post('/test', (req, res) => {
+  res.send(req.body);
+  console.log('> body ', req.body.tel);
 });
 
-app.get('/test', (req, res) => {
-  res.send('Test Page');
-});
-
+// підготувати та відправити повідомлення користувача
 app.post('/send', (req, res) => {
-  const message = 'Повідомлення було успішно відправлено! Дякуємо.'
-  // const lastName = req.body.customerLastName ? `<li>Прізвище: ${req.body.customerLastName}</li>` : null;
-  // const middleName = req.body.customerMiddleName ? `<li>Ім'я по батькові: ${req.body.customerMiddleName}</li>` : null;
-  console.log('body = ', req.body);
-  const output = `
+  // валідувати отримане повідомлення
+  const schema = Joi.object().keys({
+    firstName: Joi.string().trim().min(2).required(),
+    lastName: Joi.string().trim().min(2).optional().allow(''),
+    middleName: Joi.string().trim().min(2).optional().allow(''),
+    tel: Joi.number().integer(10).required(),
+    email: Joi.string().trim().email().optional().allow(''),
+    message: Joi.string().trim().min(1).required()
+  });
+
+  const validationResult = Joi.validate(req.body, schema);
+
+  // стилізувати номер
+  let telNumber = req.body.tel;
+  if (req.body.tel.length > 0) { telNumber = telNumber.splice(0, 0, '(') }
+  if (req.body.tel.length > 3) { telNumber = telNumber.splice(4, 0, ') ') }
+  if (req.body.tel.length > 5) { telNumber = telNumber.splice(8, 0, '-') }
+  if (req.body.tel.length > 7) { telNumber = telNumber.splice(11, 0, '-') }
+    
+  // підготувати поля
+  const lastName = req.body.lastName ? `<li>Прізвище: ${capitalizeFirstLetter(req.body.lastName)}</li>` : '';
+  const middleName = req.body.middleName ? `<li>Ім'я по батькові: ${capitalizeFirstLetter(req.body.middleName)}</li>` : '';
+  const email = req.body.email ? `<li>Email: ${req.body.email}</li>` : '';
+
+  if (!validationResult.error) {
+    const output = `
     <div>
       <h3>Ви отримали нове повідомлення:</h3>
-      <br />
-      <p>${req.body.customerMessage}</p>
-      <br />
+      <p>${capitalizeFirstLetter(req.body.message)}</p>
       <h3>Від:</h3>
       <ul>  
-        <li>Ім'я: ${req.body.customerFirstName}</li>
-        <li>Прізвище: ${req.body.customerLastName}</li>
-        <li>Ім'я по батькові: ${req.body.customerMiddleName}</li>
-        <li>Телефон: ${req.body.customerTel}</li>
-        <li>Email: ${req.body.customerEmail}</li>
+        <li>Ім'я: ${capitalizeFirstLetter(req.body.firstName)}</li>
+        ${lastName}
+        ${middleName}
+        <li>Телефон: ${telNumber}</li>
+        ${email}
       </ul>
     </div>
   `;
 
-  // create reusable transporter object using the default SMTP transport
-  let transporter = nodemailer.createTransport({
-    service: 'gmail',
-    port: 587,
-    secure: false, // true for 465, false for other ports
-    auth: {
-      user: 'victor.s.snow@gmail.com', // generated ethereal user
-      pass: 'W$m64rNoOM#Z'  // generated ethereal password
-    }
-  });
+    // створити транспортер
+    let transporter = nodemailer.createTransport({
+      service: 'gmail',
+      port: 587,
+      secure: false,
+      auth: {
+        user: 'victor.s.snow@gmail.com',
+        pass: 'W$m64rNoOM#Z'
+      }
+    });
 
-  // setup email data with unicode symbols
-  let mailOptions = {
-    from: '"Туроператор KEY" <victor.s.snow@gmail.com>', // sender address
-    to: 'vik8174@gmail.com', // list of receivers
-    subject: 'Нове Повідомлення', // Subject line
-    // text: 'Hello world?', // plain text body
-    html: output // html body
-  };
+    // зібрати повідомлення
+    let mailOptions = {
+      from: '"Туроператор KEY" <victor.s.snow@gmail.com>',
+      to: 'vik8174@gmail.com',
+      subject: 'Нове Повідомлення',
+      // text: 'Hello world?', 
+      html: output
+    };
 
-  // send mail with defined transport object
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      return console.log(error);
-    }
-    console.log('Message sent: %s', info.messageId);
-    console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-
-    res.render('contact', { layout: false, msg: message });
-  });
+    // відправити зібране повідомлення
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) { return console.log(error) }
+      res.status(200).send(validationResult);
+    });
+  } else {
+    res.status(400).send(validationResult);
+  }
 });
 
 // app.listen(3000, () => console.log('Server started...'));
 
 exports.app = functions.https.onRequest(app); 
+
+// зробити першу літеру рядка великою
+const capitalizeFirstLetter = (string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
