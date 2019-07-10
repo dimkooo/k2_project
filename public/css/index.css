@@ -6,6 +6,9 @@
 @import './components/sidebar.css';
 @import './components/search.css';
 @import './components/send-message.css';
+
 @import './components/headings.css';
 @import './components/loader.css';
-@import './components//button-full.css';
+@import './components/button-full.css';
+
+@import './components/travels.css';
