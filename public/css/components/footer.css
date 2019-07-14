@@ -1,0 +1,47 @@
+.footer{
+	background-color: white;
+	
+	
+}
+.footer__logo{
+	height: 85px;
+	width: 180px;
+	margin-top: 50px;
+}
+
+.footer__phone{
+	color: black;
+
+}
+
+.footer__icon{
+	color: black !important;
+	font-size: 27px;
+
+
+}
+
+#one{
+	color: black;
+	font-size: 13px;
+	margin-top: -30px;
+
+}
+#three{
+	color: black;
+}
+#four{
+	font-size: 13px;
+}
+
+.social img{
+  margin-left: 10px;
+  margin-bottom: 10px;
+
+}
+
+
+.social img: hover{
+  background:  #ff790c;
+  border-radius: 35%;
+}
