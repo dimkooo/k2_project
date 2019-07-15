@@ -3,9 +3,7 @@
 }
 .ban {
 	width: 150px;
-	background-color: grey;
 	margin-bottom: 10px;
-	border: 2px black solid;
 	margin-left: 5px;
 	margin-top: 5px;
 }
@@ -32,5 +30,12 @@
 }
 .travels .col {
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
+}
+#trav_h1 {
+	text-align: center;
+	color: var(--color-primary-light-2);
+	margin-bottom: 20px;
+}
+
 }
